@@ -1,0 +1,18 @@
+name: Latest blog post workflow
+on:
+  schedule:
+    - cron: '0 * * * *' # 每小时运行一次
+  workflow_dispatch: # 允许手动运行
+
+jobs:
+  update-readme-with-blog:
+    name: Update this repo's README with latest blog posts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gautamkrishnar/blog-post-workflow@master
+        with:
+          feed_list: "https://blog.chongxi.us/atom.xml"
+          max_post_count: 5
+          date_format: "yyyy-mm-dd"
+          template: "<tr><td width='100px' align='right'><code>$date</code></td><td align='left'><a href='$url'>$title</a></td></tr>"
