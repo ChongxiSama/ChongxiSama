@@ -14,7 +14,7 @@
   <a href="https://blog.chongxi.us"><img src="https://img.shields.io/badge/Blog-Chongxiの咖啡屋-39C5BB?style=for-the-badge&logo=rss&logoColor=white"></a>
   <a href="https://x.com/CEPATO233"><img src="https://img.shields.io/badge/X-%40CEPATO-000000?style=for-the-badge&logo=x&logoColor=white"></a>
   <a href="https://t.me/CEPATECH"><img src="https://img.shields.io/badge/Telegram-CEPATECH-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
-  <a href="mailto:contact@chongxi.us"><img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white"></a>
+  <a href="mailto:qwq@chongxi.us"><img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white"></a>
 </div>
 
 <br>
