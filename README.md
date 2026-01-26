@@ -1,39 +1,60 @@
 <div align="center">
-  <a href="https://chongxi.us" target="_blank">
-    <img src="https://blog.chongxi.us/images/szm.svg" alt="Logo" width="120"/>
-  </a>
 
-  <h1 style="margin: 10px 0 0;">Hi, I'm Chongxi3555</h1>
-  
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=39C5BB&center=true&vCenter=true&width=500&lines=trojan.Wrap(CEPATO).Auth(xi,+3555);Full+Stack+Developer;Lover+of+Linux+and+Open+Source" alt="Typing SVG" />
-  </a>
-</div>
+  <img src="https://blog.chongxi.us/images/14.webp" width="120" height="120" style="border-radius: 50%; object-fit: cover;" alt="Avatar">
 
-<div align="center">
-  <a href="https://blog.chongxi.us"><img src="https://img.shields.io/badge/Blog-Chongxiの咖啡屋-39C5BB?style=for-the-badge&logo=rss&logoColor=white"></a>
-  <a href="https://x.com/CEPATO233"><img src="https://img.shields.io/badge/X-%40CEPATO-000000?style=for-the-badge&logo=x&logoColor=white"></a>
-  <a href="https://t.me/CEPATECH"><img src="https://img.shields.io/badge/Telegram-CEPATECH-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
-  <a href="mailto:qwq@chongxi.us"><img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white"></a>
+  <h1>Chongxi3555</h1>
+  <p>xi, xice</p>
+
+  <h3>Lose yourself to find yourself</h3>
+
+  <div style="margin-top: 10px;">
+    <a href="https://t.me/Chongxi3555">
+      <img src="https://img.shields.io/badge/Telegram-@Chongxi3555-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white">
+    </a>
+    <a href="mailto:qwq@chongxi.us">
+      <img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white">
+    </a>
+    <a href="https://blog.chongxi.us/">
+      <img src="https://img.shields.io/badge/Blog-Coffee_House-39C5BB?style=for-the-badge&logo=rss&logoColor=white">
+    </a>
+  </div>
+
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ChongxiSama&show_icons=true&theme=tokyonight&hide_border=true&title_color=39C5BB&icon_color=39C5BB" height="150" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChongxiSama&layout=compact&theme=tokyonight&hide_border=true&langs_count=6&title_color=39C5BB" height="150" alt="Top Languages" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white" />
   <br>
-  <img src="https://streak-stats.demolab.com?user=ChongxiSama&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=39C5BB&currStreakLabel=39C5BB" alt="GitHub Streak" />
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <br>
+  <img src="https://img.shields.io/badge/go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
 </div>
+
+<br>
+
+<div align="center">
+  <img src="https://github.com/ChongxiSama/ChongxiSama/raw/main/github-metrics.svg" width="100%" alt="Metrics Dashboard" />
+</div>
+
+<br>
 
 <h3 align="center">📰 Latest Posts from Coffee House</h3>
 
 <div align="center">
-  <table>
-    <!-- BLOG-POST-LIST:START --><tr><td width='100px' align='right'><code>2026-01-24</code></td><td align='left'><a href='https://blog.chongxi.us/posts/2026/01/24/maiTool260124/'>舞萌DX水鱼查分/落雪查分成绩上传同步教程</a></td></tr><tr><td width='100px' align='right'><code>2026-01-11</code></td><td align='left'><a href='https://blog.chongxi.us/posts/2026/01/10/fkERC20/'>什么是发币？一文看清区块链同质化代币骗局</a></td></tr><tr><td width='100px' align='right'><code>2026-01-06</code></td><td align='left'><a href='https://blog.chongxi.us/posts/2026/01/06/153/'>舞萌国服1.53补丁更新内容速览</a></td></tr><tr><td width='100px' align='right'><code>2025-12-31</code></td><td align='left'><a href='https://blog.chongxi.us/posts/2025/12/31/evolutionYourS20/'>Samsung S20刷入类原生EvolutionX以及kernel SU全步骤教程&lpar;SDM-G9810&rpar;</a></td></tr><tr><td width='100px' align='right'><code>2025-12-24</code></td><td align='left'><a href='https://blog.chongxi.us/posts/2025/12/24/isMaiDown/'>如何给你的bot添加华立服务器状态检测</a></td></tr><!-- BLOG-POST-LIST:END -->
-  </table>
+
+<!-- BLOG-POST-LIST:START -->
+<!-- 这里的列表将由 Action 自动抓取 atom.xml 生成 -->
+<!-- BLOG-POST-LIST:END -->
+
 </div>
 
-<div align="center" style="margin-top: 30px;">
+<br>
+
+<div align="center">
   <img src="https://komarev.com/ghpvc/?username=ChongxiSama&style=flat-square&color=39C5BB&label=PROFILE+VIEWS" alt="Profile Views" />
 </div>
