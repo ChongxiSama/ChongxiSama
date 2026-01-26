@@ -10,7 +10,6 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          # 使用你刚刚创建的 Token，这样才能看到私有仓库
           token: ${{ secrets.METRICS_TOKEN }}
           user: ChongxiSama
           template: classic
