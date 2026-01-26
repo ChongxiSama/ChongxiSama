@@ -17,22 +17,12 @@ jobs:
           config_timezone: Asia/Shanghai
           plugin_languages: yes
           plugin_languages_indepth: yes
-          plugin_languages_analysis_timeout: 60
           plugin_languages_details: percentage, lines
-          plugin_languages_limit: 0
-          plugin_languages_recent_load: 1000
-          plugin_languages_sections: most-used, recently-used
-          plugin_languages_ignored: html, css, scss
-          plugin_languages_categories: programming
-          force_account_repositories: yes
+          plugin_languages_limit: 8
+          plugin_languages_recent_load: 400
           plugin_habits: yes
-          plugin_habits_from: 500
-          plugin_habits_days: 30
+          plugin_habits_from: 200
           plugin_habits_charts: yes
-          plugin_habits_trim: yes
           plugin_lines: yes
-          plugin_followup: yes
-          plugin_followup_sections: user
           theme: tokyonight
           filename: github-metrics.svg
-          config_order: base.header, languages, habits, lines, followup
