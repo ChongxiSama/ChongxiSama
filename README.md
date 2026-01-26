@@ -38,7 +38,7 @@
 <br>
 
 <div align="center">
-  <img src="https://github.com/ChongxiSama/ChongxiSama/github-metrics.svg" width="100%" alt="Metrics Dashboard" />
+  <img src="./github-metrics.svg" width="100%" alt="Metrics Dashboard" />
 </div>
 
 <br>
