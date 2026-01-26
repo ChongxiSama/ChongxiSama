@@ -10,19 +10,35 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
+          # 使用你刚刚创建的 Token，这样才能看到私有仓库
           token: ${{ secrets.METRICS_TOKEN }}
           user: ChongxiSama
           template: classic
+          
           base: header, activity, community, repositories, metadata
-          config_timezone: Asia/Shanghai
+          config_timezone: America/Anchorage
+          
           plugin_languages: yes
-          plugin_languages_indepth: yes
-          plugin_languages_details: percentage, lines
+          plugin_languages_ignored: html, css, scss, tex
+          plugin_languages_details: percentage
           plugin_languages_limit: 8
-          plugin_languages_recent_load: 400
+          plugin_languages_aliases: "Render:HTML" 
+          force_account_repositories: yes 
+
+          plugin_lines: yes
+
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_charts: yes
-          plugin_lines: yes
+          plugin_habits_trim: yes
+
+          plugin_followup: yes
+          plugin_followup_sections: user
+        
+          plugin_stars: yes
+          plugin_stars_limit: 4
+
           theme: tokyonight
           filename: github-metrics.svg
+        
+          config_order: base.header, languages, habits, lines, followup, stars
