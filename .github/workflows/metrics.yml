@@ -15,22 +15,22 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Asia/Shanghai
-        
           plugin_languages: yes
           plugin_languages_indepth: yes
-          plugin_languages_analysis_timeout: 30
+          plugin_languages_analysis_timeout: 60
           plugin_languages_categories: programming
           plugin_languages_details: percentage, lines
           plugin_languages_limit: 10
           plugin_languages_ignored: html, css, scss
-          
+          force_account_repositories: yes
           plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
+          plugin_habits_from: 500
+          plugin_habits_days: 30
           plugin_habits_charts: yes
-          
+          plugin_habits_trim: yes
           plugin_lines: yes
           plugin_followup: yes
-          
+          plugin_followup_sections: user
           theme: tokyonight
           filename: github-metrics.svg
+          config_order: base.header, languages, habits, lines, followup
