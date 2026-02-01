@@ -54,7 +54,7 @@
 
 <!-- BLOG-POST-LIST:START -->
 - [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://blog.chongxi.us/posts/2026/01/28/bakapiano/)
--- [本站已入驻爱发电平台](https://blog.chongxi.us/posts/2026/01/27/afd/)
+- [本站已入驻爱发电平台](https://blog.chongxi.us/posts/2026/01/27/afd/)
 - [舞萌DX水鱼查分/落雪查分成绩上传同步教程](https://blog.chongxi.us/posts/2026/01/24/maiTool260124/)
 - [什么是发币？一文看清区块链同质化代币骗局](https://blog.chongxi.us/posts/2026/01/10/fkERC20/)
 - [舞萌国服1.53补丁更新内容速览](https://blog.chongxi.us/posts/2026/01/06/153/)
