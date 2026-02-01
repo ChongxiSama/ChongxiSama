@@ -108,8 +108,9 @@ export const dashboard: T = {
     { name: "NAS", url: "https://void.chongxi.us", connected: false },
   ],
   skills: [
-    "JavaScript", "C#", "Go", "Rust", "HTML5", "Astro", "Node.js", 
-    "React", "MySQL", "TypeScript", "Hysteria2", "Netlify", "Vercel", "Tailwind"
+    "React", "Next.js", "Astro", "JavaScript", "TypeScript", 
+    "Web3.js", "Ethers.js", "Go", "Rust", "Ethereum", 
+    "Solidity", "SEO", "RAG Ready"
   ],
 };
 
