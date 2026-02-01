@@ -15,27 +15,39 @@ export default function Home() {
       
       <div className="flex flex-col gap-24 -mt-12">
           <ScrollReveal delay={0}>
-            <ProfileCard />
+            <div className="optimize-viewport">
+              <ProfileCard />
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <ConnectGrid />
+            <div className="optimize-viewport">
+              <ConnectGrid />
+            </div>
           </ScrollReveal>
           
           <ScrollReveal delay={100}>
-            <PersonalLinks />
+            <div className="optimize-viewport">
+              <PersonalLinks />
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <ProjectGrid />
+            <div className="optimize-viewport">
+              <ProjectGrid />
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <ActivitySection />
+            <div className="optimize-viewport">
+              <ActivitySection />
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <Dashboard />
+            <div className="optimize-viewport">
+              <Dashboard />
+            </div>
           </ScrollReveal>
       </div>
 

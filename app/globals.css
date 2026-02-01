@@ -165,6 +165,11 @@ body {
   will-change: transform, opacity;
 }
 
+.optimize-viewport {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
 .gpu-accelerated-morph {
   transform: translateZ(0);
   backface-visibility: hidden;

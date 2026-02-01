@@ -37,9 +37,9 @@ export default function ClientLayout({
       
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           {/* Organic Blob Layer */}
-          <div className="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] sm:w-[60vw] sm:h-[60vw] bg-[var(--md-sys-color-primary-container)] opacity-50 dark:opacity-30 blur-[100px] animate-morph-1 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph"></div>
-          <div className="absolute top-[30%] right-[-20%] w-[70vw] h-[70vw] sm:w-[50vw] sm:h-[50vw] bg-[var(--md-sys-color-tertiary-container)] opacity-50 dark:opacity-30 blur-[120px] animate-morph-2 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph" style={{ animationDelay: '-5s' }}></div>
-          <div className="absolute bottom-[-10%] left-[-5%] w-[75vw] h-[75vw] sm:w-[55vw] sm:h-[55vw] bg-[var(--md-sys-color-secondary-container)] opacity-40 dark:opacity-20 blur-[100px] animate-morph-1 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph" style={{ animationDelay: '-10s' }}></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] sm:w-[60vw] sm:h-[60vw] bg-[var(--md-sys-color-primary-container)] opacity-40 dark:opacity-20 blur-[64px] animate-morph-1 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph"></div>
+          <div className="absolute top-[30%] right-[-20%] w-[70vw] h-[70vw] sm:w-[50vw] sm:h-[50vw] bg-[var(--md-sys-color-tertiary-container)] opacity-40 dark:opacity-20 blur-[80px] animate-morph-2 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph" style={{ animationDelay: '-5s' }}></div>
+          <div className="absolute bottom-[-10%] left-[-5%] w-[75vw] h-[75vw] sm:w-[55vw] sm:h-[55vw] bg-[var(--md-sys-color-secondary-container)] opacity-30 dark:opacity-15 blur-[64px] animate-morph-1 mix-blend-multiply dark:mix-blend-screen gpu-accelerated-morph" style={{ animationDelay: '-10s' }}></div>
 
           {/* Segmented Circle */}
           <div className="absolute top-[5%] right-[5%] w-28 h-28 sm:w-40 sm:h-40 text-[var(--md-sys-color-primary)] opacity-60 dark:opacity-30 animate-float gpu-accelerated">

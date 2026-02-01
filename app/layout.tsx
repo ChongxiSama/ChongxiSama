@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import "material-symbols/rounded.css";
 import ClientLayout from "@/components/ClientLayout";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -31,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      </head>
+      <head />
       <body
         className={`${plusJakartaSans.variable} ${robotoMono.variable} antialiased`}
       >
