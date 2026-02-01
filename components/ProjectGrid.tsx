@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from 'react';
 import { projects, sections } from '@/lib/config';
 import ExpandingButton from './ExpandingButton';

@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, RefObject } from 'react';
 
 type Handler = (event: MouseEvent | TouchEvent) => void;

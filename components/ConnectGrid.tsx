@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useRef } from 'react';
 import { connectLinks, sections } from '@/lib/config';
 import ExpandingButton from './ExpandingButton';
