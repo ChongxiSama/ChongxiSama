@@ -156,6 +156,21 @@ body {
   0% { opacity: 0; transform: translateY(40px) scale(0.98); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* GPU Accelerated Utilities */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+.gpu-accelerated-morph {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: border-radius, transform, opacity;
+}
+
 @keyframes popIn {
   0% { opacity: 0; transform: scale(0.8); }
   100% { opacity: 1; transform: scale(1); }
