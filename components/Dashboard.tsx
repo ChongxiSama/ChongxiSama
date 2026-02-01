@@ -12,7 +12,7 @@ const Dashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Status */}
-            <div className="lg:col-span-4 bg-[var(--md-sys-color-surface-container)] rounded-[32px] p-8 flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+            <div className="lg:col-span-4 bg-[var(--md-sys-color-surface-container)] rounded-[28px] p-8 flex flex-col gap-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <div className="flex items-center gap-3">
                     <div className="p-3 rounded-xl bg-[var(--md-sys-color-tertiary-container)] text-[var(--md-sys-color-on-tertiary-container)]">
                         <span className="material-symbols-rounded">dns</span>
@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
                     {dashboard.servers.map((server: any, i: number) => (
                         <div 
                             key={server.name} 
-                            className="group hover-state relative flex items-center justify-between p-4 rounded-2xl bg-[var(--md-sys-color-surface)] border border-transparent hover:border-[var(--md-sys-color-outline-variant)]/30 transition-all duration-medium ease-emphasized overflow-hidden"
+                            className="group hover-state relative flex items-center justify-between p-4 rounded-xl ripple-root bg-[var(--md-sys-color-surface)] border border-transparent hover:border-[var(--md-sys-color-outline-variant)]/30 transition-all duration-medium ease-emphasized overflow-hidden"
                             style={{ animationDelay: `${i * 100}ms` }}
                         >
                             <div className="state-layer text-[var(--md-sys-color-on-surface)]"></div>
@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* Tech Stack */}
-            <div className="lg:col-span-8 bg-[var(--md-sys-color-surface-container-high)] rounded-[32px] p-8 relative overflow-hidden flex flex-col animate-fade-in-up" style={{ animationDelay: '250ms' }}>
+            <div className="lg:col-span-8 bg-[var(--md-sys-color-surface-container-high)] rounded-[28px] p-8 relative overflow-hidden flex flex-col animate-fade-in-up" style={{ animationDelay: '250ms' }}>
                 <div className="flex items-center gap-3 mb-8 z-10">
                     <div className="p-3 rounded-xl bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)]">
                         <span className="material-symbols-rounded">memory</span>

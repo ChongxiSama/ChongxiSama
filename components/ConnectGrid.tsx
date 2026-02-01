@@ -25,7 +25,7 @@ const ConnectCard: React.FC<{ link: any, index: number }> = ({ link, index }) =>
         <div 
             ref={cardRef}
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`group cursor-pointer relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br ${getColorClasses(link.color)} overflow-hidden transition-all duration-medium ease-emphasized hover:scale-[1.02] active:scale-[0.98] animate-gradient-xy bg-[length:200%_200%] hover:rounded-[24px]`}
+            className={`ripple-root group cursor-pointer relative p-6 sm:p-8 rounded-[28px] bg-gradient-to-br ${getColorClasses(link.color)} overflow-hidden transition-colors duration-medium ease-emphasized animate-gradient-xy bg-[length:200%_200%]`}
             style={{ animationDelay: `${index * 150}ms` }}
         >
             <div className="state-layer rounded-[inherit]"></div>

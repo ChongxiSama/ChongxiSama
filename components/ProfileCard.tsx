@@ -4,8 +4,8 @@ import { profile } from '@/lib/config';
 const ProfileCard: React.FC = () => {
     return (
         <section className="w-full">
-            <div className="group hover-state relative p-8 rounded-[32px] bg-[var(--md-sys-color-surface-container)] border border-[var(--md-sys-color-outline-variant)]/20 hover:border-[var(--md-sys-color-primary)]/40 overflow-hidden flex flex-col items-center text-center transition-all duration-medium ease-emphasized hover:scale-[1.02] active:scale-[0.98] hover:rounded-[24px]">
-                 <div className="state-layer text-[var(--md-sys-color-on-surface)] rounded-[inherit]"></div>
+            <div className="ripple-root group hover-state relative p-8 rounded-[28px] bg-[var(--md-sys-color-surface-container)] border border-[var(--md-sys-color-outline-variant)]/20 hover:border-[var(--md-sys-color-primary)]/40 overflow-hidden flex flex-col items-center text-center transition-colors duration-medium ease-emphasized">
+                 <div className="state-layer text-[var(--md-sys-color-on-surface)]"></div>
                  {/* Decorative Blob */}
                 <div className="absolute top-0 left-0 w-64 h-64 bg-[var(--md-sys-color-primary-container)]/50 rounded-full blur-[80px] opacity-50"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-[var(--md-sys-color-secondary-container)]/50 rounded-full blur-[80px] opacity-50"></div>

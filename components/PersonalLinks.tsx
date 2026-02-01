@@ -70,7 +70,7 @@ const SpotifyNowPlayingCard: React.FC<{ link: any }> = ({ link }) => {
         <div 
             ref={cardRef}
             onClick={() => setIsExpanded(!isExpanded)}
-            className="group relative cursor-pointer flex flex-col justify-between p-6 rounded-[32px] bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] overflow-hidden transition-all duration-medium ease-emphasized hover:scale-[1.02] active:scale-[0.98] hover:rounded-[24px]"
+            className="group relative cursor-pointer flex flex-col justify-between p-6 rounded-[28px] ripple-root bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] overflow-hidden transition-all duration-medium ease-emphasized hover:scale-[1.02]  hover:rounded-[24px]"
         >
             <div className="state-layer text-[var(--md-sys-color-on-surface)] rounded-[inherit]"></div>
             <div className="relative z-10 flex justify-between items-start">
@@ -134,7 +134,7 @@ const PersonalLinkCard: React.FC<{ link: any }> = ({ link }) => {
         <div 
           ref={cardRef}
           onClick={() => setIsExpanded(!isExpanded)}
-          className="group relative cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-[32px] bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] overflow-hidden transition-all duration-medium ease-emphasized hover:scale-[1.02] active:scale-[0.98] hover:rounded-[24px]"
+          className="group relative cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-[28px] ripple-root bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] overflow-hidden transition-all duration-medium ease-emphasized hover:scale-[1.02]  hover:rounded-[24px]"
         >
             <div className="state-layer text-[var(--md-sys-color-on-surface)] rounded-[inherit]"></div>
             <div className="relative z-10 flex justify-between items-start">

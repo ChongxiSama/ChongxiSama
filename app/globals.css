@@ -115,16 +115,41 @@ body {
   inset: 0;
   background-color: currentColor;
   opacity: 0;
-  transition: opacity 0.2s cubic-bezier(0.2, 0, 0, 1);
+  transition: opacity 0.25s cubic-bezier(0.2, 0, 0, 1);
   pointer-events: none;
+  z-index: 1;
 }
+
 .group:hover .state-layer, 
 .hover-state:hover .state-layer {
   opacity: var(--md-sys-state-hover);
 }
-.group:active .state-layer,
-.hover-state:active .state-layer {
+
+/* MD3 Ripple Effect */
+.ripple-root {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ripple-root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, currentColor 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.8s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ripple-root:active::after {
+  transform: scale(0, 0);
   opacity: var(--md-sys-state-pressed);
+  transition: 0s;
 }
 
 .shimmer-bg {

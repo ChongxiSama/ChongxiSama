@@ -16,12 +16,12 @@ const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index
             ref={cardRef}
             onClick={() => setIsExpanded(!isExpanded)}
             className={`
-            group relative cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-[28px]
+            group relative cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-[28px] ripple-root
             bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)]
             overflow-hidden
             transition-all duration-medium ease-emphasized
-            active:scale-[0.98]
-            hover:rounded-[20px] hover:scale-[1.02]
+            
+            
             ${project.featured ? 'md:col-span-2 md:row-span-2 min-h-[360px]' : 'min-h-[260px]'}
             animate-fade-in-up
             `}
@@ -80,7 +80,7 @@ const ProjectGrid: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {loading && projects.map((project: any, i: number) => (
-            <div key={`skel-${i}`} className={`relative overflow-hidden rounded-[28px] bg-[var(--md-sys-color-surface-container)] shimmer-bg animate-shimmer ${project.featured ? 'md:col-span-2 md:row-span-2 min-h-[360px]' : 'min-h-[260px]'}`} />
+            <div key={`skel-${i}`} className={`relative overflow-hidden rounded-[28px] ripple-root bg-[var(--md-sys-color-surface-container)] shimmer-bg animate-shimmer ${project.featured ? 'md:col-span-2 md:row-span-2 min-h-[360px]' : 'min-h-[260px]'}`} />
         ))}
 
         {!loading && projects.map((project: any, index: number) => (
