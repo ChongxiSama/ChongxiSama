@@ -1,69 +1,36 @@
-<div align="center">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-  <img src="https://blog.chongxi.us/images/14.webp" width="120" height="120" style="border-radius: 50%; object-fit: cover;" alt="Avatar">
+## Getting Started
 
-  <h1>Chongxi3555</h1>
-  <p>xi, xice</p>
+First, run the development server:
 
-  <h3>Lose yourself to find yourself</h3>
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<div align="center">
-    <a href="https://t.me/Chongxi3555">
-      <img src="https://img.shields.io/badge/Telegram-@Chongxi3555-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white">
-    </a>
-    <a href="mailto:qwq@chongxi.us">
-      <img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white">
-    </a>
-    <a href="https://blog.chongxi.us/">
-      <img src="https://img.shields.io/badge/Blog-Coffee_House-39C5BB?style=for-the-badge&logo=rss&logoColor=white">
-    </a>
-</div>
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<br>
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-<div align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white" />
-  <br>
-  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/web3.js-F16822?style=for-the-badge&logo=web3dotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/ethers.js-24305E?style=for-the-badge&logo=ethers&logoColor=white" />
-  <br>
-  <img src="https://img.shields.io/badge/go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
-  <img src="https://img.shields.io/badge/rust-000000?style=for-the-badge&logo=rust&logoColor=white" />
-  <img src="https://img.shields.io/badge/ethereum-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white" />
-  <img src="https://img.shields.io/badge/solidity-363636?style=for-the-badge&logo=solidity&logoColor=white" />
-  <br>
-  <img src="https://img.shields.io/badge/SEO-Search_Engine_Optimization-blue?style=for-the-badge&logo=google&logoColor=white" />
-  <img src="https://img.shields.io/badge/RAG_Ready-Data_Structuring-00CC99?style=for-the-badge&logo=databricks&logoColor=white" />
-</div>
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-<br>
+## Learn More
 
-<div align="center">
-  <img src="./github-metrics.svg" width="100%" alt="Metrics Dashboard" />
-</div>
+To learn more about Next.js, take a look at the following resources:
 
-<br>
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-<h3 align="center">📰 Latest Posts from Coffee House</h3>
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-<div align="center">
+## Deploy on Vercel
 
-<!-- BLOG-POST-LIST:START -->
-- [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://blog.chongxi.us/posts/2026/01/28/bakapiano/)
-- [本站已入驻爱发电平台](https://blog.chongxi.us/posts/2026/01/27/afd/)
-- [舞萌DX水鱼查分/落雪查分成绩上传同步教程](https://blog.chongxi.us/posts/2026/01/24/maiTool260124/)
-- [什么是发币？一文看清区块链同质化代币骗局](https://blog.chongxi.us/posts/2026/01/10/fkERC20/)
-- [舞萌国服1.53补丁更新内容速览](https://blog.chongxi.us/posts/2026/01/06/153/)
-<!-- BLOG-POST-LIST:END -->
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=ChongxiSama&style=flat-square&color=39C5BB&label=PROFILE+VIEWS" alt="Profile Views" />
-</div>
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
