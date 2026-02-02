@@ -1,6 +1,6 @@
 name: Metrics
 on:
-  schedule: [{cron: "0 * * * *"}]
+  schedule: [{cron: "0 0 * * *"}]
   workflow_dispatch:
 jobs:
   github-metrics:
@@ -25,6 +25,7 @@ jobs:
           plugin_habits_days: 14
           plugin_habits_charts: yes
           plugin_lines: yes
+          plugin_lines_sections: history, repositories
           plugin_achievements: yes
           plugin_achievements_threshold: C
           plugin_achievements_display: compact
