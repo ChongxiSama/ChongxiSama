@@ -53,11 +53,11 @@
 <div align="center">
 
 <!-- BLOG-POST-LIST:START -->
+- [36年回顾：互联网前端发展史](https://blog.chongxi.us/posts/2026/02/08/historyForFR/)
 - [仅使用iPad从0搭建hexo个人blog建站](https://blog.chongxi.us/posts/2026/02/02/hexoInCodespace/)
 - [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://blog.chongxi.us/posts/2026/01/28/bakapiano/)
 - [本站已入驻爱发电平台](https://blog.chongxi.us/posts/2026/01/27/afd/)
 - [舞萌DX水鱼查分/落雪查分成绩上传同步教程](https://blog.chongxi.us/posts/2026/01/24/maiTool260124/)
-- [什么是发币？一文看清区块链同质化代币骗局](https://blog.chongxi.us/posts/2026/01/10/fkERC20/)
 <!-- BLOG-POST-LIST:END -->
 
 </div>
