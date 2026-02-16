@@ -75,14 +75,6 @@ export const personalLinks: T[] = [
     icon: "music_note",
     live: true,
     type: "spotify"
-  },
-  {
-    platform: "Steam",
-    description: "Gaming activity.",
-    url: "https://steamcommunity.com/id/CEPATO/",
-    icon: "sports_esports",
-    live: true,
-    type: "steam"
   }
 ];
 
