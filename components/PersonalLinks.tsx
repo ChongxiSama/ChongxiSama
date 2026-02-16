@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { SiSpotify, SiSteam } from 'react-icons/si';
 import { personalLinks, sections } from '@/lib/config';
 import ExpandingButton from './ExpandingButton';
 import useClickOutside from './useClickOutside';
@@ -60,7 +61,7 @@ const SpotifyNowPlayingCard: React.FC<{ link: any }> = ({ link }) => {
             <div className="state-layer text-[var(--md-sys-color-on-surface)] rounded-[inherit]"></div>
             <div className="relative z-10 flex justify-between items-start">
                 <div className="flex items-center gap-2 text-sm font-medium">
-                    <svg className="w-5 h-5 fill-current text-green-500" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.322-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.083-2.29a.75.75 0 0 1-1.026.247c-2.52-1.54-6.752-1.655-9.289-.914a.75.75 0 0 1-.415-1.434c2.825-.811 7.422-.667 10.337 1.155a.75.75 0 0 1 .247 1.026z"></path></svg>
+                    <SiSpotify className="w-5 h-5 text-[#1DB954]" />
                     <span>{link.platform}</span>
                 </div>
                 <ExpandingButton url={data.songUrl || link.url} text="Listen" isExpanded={isExpanded} />
@@ -149,9 +150,7 @@ const SteamStatusCard: React.FC<{ link: any }> = ({ link }) => {
             <div className="state-layer text-[var(--md-sys-color-on-surface)] rounded-[inherit]"></div>
             <div className="relative z-10 flex justify-between items-start">
                 <div className="flex items-center gap-2 text-sm font-medium">
-                    <svg className="w-5 h-5 fill-current text-blue-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 .007C5.372.007 0 5.38 0 12.007c0 1.544.293 3.02.825 4.374l3.541 1.465c.71-.331 1.507-.485 2.276-.44l2.302-3.376c-.012-.1-.018-.199-.018-.301 0-1.545 1.254-2.8 2.8-2.8 1.546 0 2.8 1.255 2.8 2.8s-1.254 2.8-2.8 2.8c-.131 0-.256-.01-.38-.03l-3.35 2.302c.01.155.015.308.015.464 0 2.209-1.791 4-4 4-.46 0-.897-.077-1.306-.222L.15 20.377C1.942 22.567 4.805 24.007 12 24.007c6.627 0 12-5.373 12-12s-5.373-12-12-12zm.012 8.783a1.94 1.94 0 0 1 1.942 1.942 1.94 1.94 0 0 1-1.942 1.942 1.94 1.94 0 0 1-1.942-1.942 1.94 1.94 0 0 1 1.942-1.942zm-5.06 5.342a2.146 2.146 0 0 1 2.146 2.146 2.146 2.146 0 0 1-2.146 2.146 2.146 2.146 0 0 1-2.146-2.146 2.146 2.146 0 0 1 2.146-2.146z"/>
-                    </svg>
+                    <SiSteam className="w-5 h-5 text-[#00ADEE]" />
                     <span>{link.platform}</span>
                 </div>
                 <ExpandingButton url={link.url} text="Profile" isExpanded={isExpanded} />
