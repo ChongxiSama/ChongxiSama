@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Full Stack Developer, Web3 Researcher & Tech Blogger. Exploration of Web3, SEO, and Android Technology.",
   authors: [{ name: "Chongxi" }],
   icons: {
-    icon: "https://blog.chongxi.us/images/xi.webp",
+    icon: "https://github.com/ChongxiSama.png",
   },
 };
 

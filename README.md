@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://blog.chongxi.us/images/14.webp" width="120" height="120" style="border-radius: 50%; object-fit: cover;" alt="Avatar">
+  <img src="https://github.com/ChongxiSama.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;" alt="Avatar">
 
   <h1>Chongxi3555</h1>
   <p>xi, xice</p>

@@ -12,8 +12,8 @@ export const profile: T = {
   role: "ROOT",
   location: "Anchorage, Alaska",
   avatars: [
-    "https://blog.chongxi.us/images/xi.webp",
-    "https://blog.chongxi.us/images/xi.webp"
+    "https://github.com/ChongxiSama.png",
+    "https://github.com/ChongxiSama.png"
   ],
   slogan: [
     { text: "Exploring digital frontiers through " },
