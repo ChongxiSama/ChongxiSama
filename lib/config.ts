@@ -71,9 +71,18 @@ export const personalLinks: T[] = [
   {
     platform: "Spotify",
     description: "Live listening activity.",
-    url: "https://spot.chongxi.us",
+    url: "https://open.spotify.com/user/your_spotify_id", // Replace with actual profile URL
     icon: "music_note",
-    live: true, 
+    live: true,
+    type: "spotify"
+  },
+  {
+    platform: "Steam",
+    description: "Gaming activity.",
+    url: "https://steamcommunity.com/id/CEPATO/",
+    icon: "sports_esports",
+    live: true,
+    type: "steam"
   }
 ];
 
