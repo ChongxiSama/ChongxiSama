@@ -7,7 +7,7 @@ export const runtime = 'edge';
 export async function GET() {
   const response = await getNowPlaying();
 
-  if (response.status === 204 || response.status > 400) {
+  if (!response || response.status === 204 || response.status > 400) {
     return NextResponse.json({ isPlaying: false });
   }
 
