@@ -53,11 +53,11 @@
 <div align="center">
 
 <!-- BLOG-POST-LIST:START -->
+- [为什么舞萌机台老断网？一文解决近期舞萌服务器问题的所有疑惑](https://blog.chongxi.us/posts/whyMaiDown/)
 - [36年回顾：互联网前端发展史](https://blog.chongxi.us/posts/historyForFR/)
 - [仅使用iPad从0搭建hexo个人blog建站](https://blog.chongxi.us/posts/hexoInCodespace/)
 - [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://blog.chongxi.us/posts/bakapiano/)
 - [本站已入驻爱发电平台](https://blog.chongxi.us/posts/afd/)
-- [舞萌DX水鱼查分/落雪查分成绩上传同步教程](https://blog.chongxi.us/posts/maiTool260124/)
 <!-- BLOG-POST-LIST:END -->
 
 </div>
