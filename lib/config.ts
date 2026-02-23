@@ -112,7 +112,7 @@ export const projects: T[] = [
 export const dashboard: T = {
   servers: [
     { name: "main", url: "https://chongxi.us", connected: true },
-    { name: "blog", url: "https://blog.chongxi.us", connected: true },
+    { name: "blog", url: "https://xice.cx", connected: true },
     { name: "spot", url: "https://spot.chongxi.us", connected: true },
     { name: "NAS", url: "https://void.chongxi.us", connected: false },
   ],

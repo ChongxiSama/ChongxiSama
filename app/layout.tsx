@@ -30,9 +30,45 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://chongxi.us/#person",
+        "name": "Chongxi",
+        "alternateName": ["xi", "重熙", "Chongxi3555"],
+        "url": "https://chongxi.us/",
+        "image": "https://github.com/ChongxiSama.png",
+        "identifier": "0009-0007-9348-1534",
+        "description": "个人开发者，CEPATO 和 ForestSeCond 的第一负责人。专注于 Web3, SEO 以及 Android 技术研究。",
+        "sameAs": [
+          "https://xice.cx/",
+          "https://mai.chongxi.us/",
+          "https://blog.chongxi.us/",
+          "https://github.com/ChongxiSama",
+          "https://t.me/CEPATECH",
+          "https://orcid.org/0009-0007-9348-1534"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chongxi.us/#website",
+        "url": "https://chongxi.us/",
+        "name": "Chongxi's Digital Hub",
+        "publisher": { "@id": "https://chongxi.us/#person" }
+      }
+    ]
+  };
+
   return (
     <html lang="zh-CN">
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${plusJakartaSans.variable} ${robotoMono.variable} antialiased`}
       >
