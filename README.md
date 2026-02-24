@@ -53,11 +53,11 @@
 <div align="center">
 
 <!-- BLOG-POST-LIST:START -->
-- [为什么「己所不欲勿施于人」是人类有史以来最冠冕堂皇的逃避借口](https://blog.chongxi.us/posts/theUltimateExcuse/)
-- [36年回顾：互联网前端发展史](https://blog.chongxi.us/posts/historyForFR/)
-- [仅使用iPad从0搭建hexo个人blog建站](https://blog.chongxi.us/posts/hexoInCodespace/)
-- [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://blog.chongxi.us/posts/bakapiano/)
-- [本站已入驻爱发电平台](https://blog.chongxi.us/posts/afd/)
+- [为什么「己所不欲勿施于人」是人类有史以来最冠冕堂皇的逃避借口](https://xice.cx/posts/theUltimateExcuse/)
+- [36年回顾：互联网前端发展史](https://xice.cx/posts/historyForFR/)
+- [仅使用iPad从0搭建hexo个人blog建站](https://xice.cx/posts/hexoInCodespace/)
+- [bakapiano查分器使用教程&lpar;maimai score hub&rpar;](https://xice.cx/posts/bakapiano/)
+- [本站已入驻爱发电平台](https://xice.cx/posts/afd/)
 <!-- BLOG-POST-LIST:END -->
 
 </div>
