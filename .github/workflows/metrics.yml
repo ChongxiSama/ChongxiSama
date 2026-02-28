@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: lowlighter/metrics@v3.34
+      - uses: lowlighter/metrics@master
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: ChongxiSama
@@ -20,6 +20,7 @@ jobs:
           plugin_languages_ignored: html, css, scss
           plugin_languages_details: percentage, lines
           plugin_languages_limit: 10
+          plugin_languages_recent_load: 800
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 14
