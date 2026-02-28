@@ -18,7 +18,7 @@ const ActivitySection: React.FC = () => {
   useEffect(() => {
     const fetchRSS = async () => {
       try {
-        const RSS_URL = 'https://blog.chongxi.us/atom.xml';
+        const RSS_URL = 'https://xice.cx/atom.xml';
         const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`);
         
         if (!response.ok) throw new Error("Network response was not ok");

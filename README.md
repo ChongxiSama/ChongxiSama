@@ -14,7 +14,7 @@
     <a href="mailto:qwq@chongxi.us">
       <img src="https://img.shields.io/badge/Email-Contact_Me-555555?style=for-the-badge&logo=maildotru&logoColor=white">
     </a>
-    <a href="https://blog.chongxi.us/">
+    <a href="https://xice.cx/">
       <img src="https://img.shields.io/badge/Blog-Coffee_House-39C5BB?style=for-the-badge&logo=rss&logoColor=white">
     </a>
 </div>

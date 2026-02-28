@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex items-center gap-4">
              <div className="w-12 h-12 rounded-[16px] overflow-hidden bg-[var(--md-sys-color-surface-container-high)] shadow-sm">
                 <img 
-                  src="https://blog.chongxi.us/images/xi.webp" 
+                  src="https://xice.cx/images/xi.webp" 
                   alt={`${profile.name} Avatar`} 
                   className="w-full h-full object-cover"
                 />

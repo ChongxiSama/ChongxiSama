@@ -45,7 +45,6 @@ export default function RootLayout({
         "sameAs": [
           "https://xice.cx/",
           "https://mai.chongxi.us/",
-          "https://blog.chongxi.us/",
           "https://github.com/ChongxiSama",
           "https://t.me/CEPATECH",
           "https://orcid.org/0009-0007-9348-1534"
