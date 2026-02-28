@@ -2,7 +2,6 @@ name: Metrics
 on:
   schedule: [{cron: "0 0 * * *"}]
   workflow_dispatch:
-  push: {branches: ["root"]}
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
@@ -21,6 +20,8 @@ jobs:
           plugin_languages_details: percentage, lines
           plugin_languages_sections: most-used
           plugin_languages_limit: 10
+          plugin_languages_recent_load: 1000
+          plugin_languages_recent_days: 365
           plugin_habits: yes
           plugin_habits_from: 200
           plugin_habits_days: 14
