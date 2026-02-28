@@ -56,8 +56,8 @@
 - [舞萌DX报错8103/8106问题原因分析和解决方案](https://xice.cx/posts/maiErr810603/)
 - [&lt;图文教程&gt;三星健康国区启用开发者模式并开启Health Connect健康连接](https://xice.cx/posts/openDevOnSamsungHelathCN/)
 - [为什么「己所不欲勿施于人」是人类有史以来最冠冕堂皇的逃避借口](https://xice.cx/posts/theUltimateExcuse/)
+- [为什么舞萌机台老断网？一文解决近期舞萌服务器问题的所有疑惑](https://xice.cx/posts/whyMaiDown/)
 - [36年回顾：互联网前端发展史](https://xice.cx/posts/historyForFR/)
-- [仅使用iPad从0搭建hexo个人blog建站](https://xice.cx/posts/hexoInCodespace/)
 <!-- BLOG-POST-LIST:END -->
 
 </div>
