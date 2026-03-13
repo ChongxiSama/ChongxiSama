@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center"> 
 
   <img src="https://github.com/ChongxiSama.png" width="120" height="120" style="border-radius: 50%; object-fit: cover;" alt="Avatar">
 
