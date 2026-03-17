@@ -53,11 +53,11 @@
 <div align="center">
 
 <!-- BLOG-POST-LIST:START -->
+- [lanota的单曲分值和rating计算讲解分析](https://xice.cx/posts/lanotaScoreRating/)
 - [全球铁路网？浅谈2026年WEB3主要区块链网络](https://xice.cx/posts/web3Chain2026/)
 - [QQ走mipush推送服务会检测root](https://xice.cx/posts/mipushQQ/)
 - [三星极致的软件模块化：图形驱动居然是个apk](https://xice.cx/posts/samGPUdriverApk/)
 - [舞萌DX报错8103/8106以及0949问题原因分析和解决方案](https://xice.cx/posts/maiErr810603/)
-- [&lt;图文教程&gt;三星健康国区启用开发者模式并开启Health Connect健康连接](https://xice.cx/posts/openDevOnSamsungHelathCN/)
 <!-- BLOG-POST-LIST:END -->
 
 </div>
