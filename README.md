@@ -40,12 +40,6 @@
 
 ## Stats
 
-<div align="center">
-
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=ChongxiSama&count_private=true&show_icons=true&hide=issues&bg_color=0d1117&title_color=39C5BB&icon_color=39C5BB&text_color=c9d1d9&border_color=30363d&border_radius=10" />
-
-<br /><br />
-
 <img src="https://streak-stats.demolab.com/?user=ChongxiSama&theme=dark&ring=39C5BB&fire=39C5BB&currStreakLabel=39C5BB&sideLabels=c9d1d9&dates=c9d1d9&border=30363d&background=0d1117&border_radius=10" />
 
 </div>
@@ -62,17 +56,6 @@
 
 </div>
 
-<br />
-
----
-
-## Achievements
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=ChongxiSama&count_private=true&show_icons=true&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&hide=issues&bg_color=0d1117&title_color=39C5BB&icon_color=39C5BB&text_color=c9d1d9&border_color=30363d&border_radius=10&rank_icon=github" />
-
-</div>
 
 <br />
 
