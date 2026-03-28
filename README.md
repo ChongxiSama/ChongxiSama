@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [华立采取激进IP策略使舞萌中二等机台全体断网问题解答](https://xice.cx/posts/maiBanIP/)
 - [lanota的单曲分值和rating计算讲解分析](https://xice.cx/posts/lanotaScoreRating/)
 - [全球铁路网？浅谈2026年WEB3主要区块链网络](https://xice.cx/posts/web3Chain2026/)
 - [QQ走mipush推送服务会检测root](https://xice.cx/posts/mipushQQ/)
 - [三星极致的软件模块化：图形驱动居然是个apk](https://xice.cx/posts/samGPUdriverApk/)
-- [舞萌DX报错8103/8106以及0949问题原因分析和解决方案](https://xice.cx/posts/maiErr810603/)
 <!-- BLOG-POST-LIST:END -->
