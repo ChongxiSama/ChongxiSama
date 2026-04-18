@@ -5,7 +5,7 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
-const getAccessToken = async () => {
+export const getAccessToken = async () => {
   if (!client_id || !client_secret || !refresh_token) {
     console.error("Missing Spotify Environment Variables");
     return { access_token: null };
