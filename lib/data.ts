@@ -94,3 +94,5 @@ export const siteData = {
     }
   ]
 };
+
+export type SiteData = typeof siteData;
