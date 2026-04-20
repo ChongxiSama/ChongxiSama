@@ -16,7 +16,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 const notoSerifSC = Noto_Serif_SC({
   variable: "--font-cn",
-  subsets: ["chinese-simplified"],
+  subsets: ["latin"],
   weight: ["400", "700", "900"],
 });
 
