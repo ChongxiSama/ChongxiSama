@@ -131,8 +131,8 @@ const SignalMonitor = ({ title }: { title: string }) => {
         </div>
         <div className="flex items-center justify-between py-4">
           <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">STM · In Session</span>
-          <span className={`font-display text-[15px] uppercase font-black transition-colors ${steam.gameextrainfo || steam.personaname ? 'text-lt-accent' : 'text-lt-ghost'}`}>
-            {steam.gameextrainfo ? steam.gameextrainfo : (steam.personaname ? 'Online' : 'Offline')}
+          <span className={`font-display text-[15px] uppercase font-black transition-colors ${steam.personastate && steam.personastate > 0 ? 'text-lt-accent' : 'text-lt-ghost'}`}>
+            {steam.gameextrainfo ? steam.gameextrainfo : (steam.personastate && steam.personastate > 0 ? 'Online' : 'Offline')}
           </span>
         </div>
       </div>
