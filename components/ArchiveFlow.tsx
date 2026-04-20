@@ -126,7 +126,7 @@ const SignalMonitor = ({ title }: { title: string }) => {
         <div className="flex items-center justify-between py-4 border-b border-lt-border">
           <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">SPT · Now Playing</span>
           <span className={`font-display text-[15px] uppercase font-black transition-colors ${spotify.isPlaying ? 'text-lt-accent' : 'text-lt-ghost'}`}>
-            {spotify.isPlaying ? `${spotify.title} // ${spotify.artist}` : 'Offline'}
+            {spotify.isPlaying ? `${spotify.title}` : 'Offline'}
           </span>
         </div>
         <div className="flex items-center justify-between py-4">
