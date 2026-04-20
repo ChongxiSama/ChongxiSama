@@ -247,7 +247,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
               <div className="flex items-center justify-between mb-4 border-b border-lt-border pb-2">
                 <div className="flex items-baseline gap-1">
                   <span className="text-[9px] font-mono text-lt-ghost uppercase tracking-widest">Lv</span>
-                  <span className="text-[11px] font-mono font-black text-lt-accent uppercase">{c1.content.clearance}</span>
+                  <span className="text-[11px] font-mono font-black text-lt-accent uppercase">{c1.content?.clearance}</span>
                 </div>
                 <SyncProgress />
               </div>
@@ -269,16 +269,16 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
             <div className="flex-1">
               <div className="mb-14">
                 <div className="mb-2">
-                  <span className="text-[11px] font-mono text-lt-ghost uppercase tracking-widest">{c1.content.orcid_prefix}{profile.orcid.id}</span>
+                  <span className="text-[11px] font-mono text-lt-ghost uppercase tracking-widest">{c1.content?.orcid_prefix}{profile.orcid.id}</span>
                 </div>
                 <h1 className="font-display text-[56px] sm:text-[72px] leading-[0.8] tracking-tighter text-lt-ink uppercase font-black">
                   {profile.name}
                 </h1>
                 <div className="mt-2">
-                  <span className="text-[32px] font-display text-lt-ink opacity-20 uppercase leading-none font-black">{c1.content.role_prefix}{c1.content.role}</span>
+                  <span className="text-[32px] font-display text-lt-ink opacity-20 uppercase leading-none font-black">{c1.content?.role_prefix}{c1.content?.role}</span>
                 </div>
                 <div className="mt-8 flex gap-2">
-                  {c1.content.tags.map((tag: string, i: number) => (
+                  {c1.content?.tags.map((tag: string, i: number) => (
                     <span key={i} className={`px-2 py-0.5 text-[11px] font-mono font-bold rounded-sm uppercase tracking-widest transition-all duration-300 hover:scale-105 cursor-default ${i === 0 ? 'bg-lt-ink text-lt-bg' : 'border border-lt-ink text-lt-ink hover:bg-lt-ink hover:text-lt-bg'}`}>
                       {tag}
                     </span>
@@ -288,10 +288,10 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
               
               <div className="space-y-12">
                 <section>
-                  <SectionHeader id="01" title={c1.content.briefing_title} />
+                  <SectionHeader id="01" title={c1.content?.briefing_title} />
                   <p className="font-cn text-[15px] leading-[1.75] text-lt-ink text-justify">
-                    <span className="font-black">{c1.content.slogan_main}</span><br/>
-                    {c1.content.slogan.map((s: any, i: number) => (
+                    <span className="font-black">{c1.content?.slogan_main}</span><br/>
+                    {c1.content?.slogan.map((s: any, i: number) => (
                       <span key={i} className={s.highlight ? "font-black" : ""}>{s.text}</span>
                     ))}
                   </p>
