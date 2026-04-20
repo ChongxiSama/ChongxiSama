@@ -9,8 +9,8 @@ export const profile: T = {
   role: "ROOT",
   location: "Anchorage, Alaska",
   avatars: [
-    "https://github.com/ChongxiSama.png",
-    "https://github.com/ChongxiSama.png"
+    "/avatar.webp",
+    "/avatar.webp"
   ],
   slogan: [
     { text: "Exploring digital frontiers through " },

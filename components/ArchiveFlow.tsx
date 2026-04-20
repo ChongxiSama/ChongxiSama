@@ -251,11 +251,12 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
                 </div>
                 <SyncProgress />
               </div>
-              <div className="aspect-[3/4] bg-lt-surface border border-lt-border relative overflow-hidden group">
+              <div className="aspect-[3/4] w-full bg-lt-surface border border-lt-border relative overflow-hidden group">
                 <Image 
                   src={profile.avatars[0]} 
                   alt="Avatar" 
                   fill
+                  sizes="(max-width: 768px) 100vw, 240px"
                   className="object-cover grayscale opacity-80 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
