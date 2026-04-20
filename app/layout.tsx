@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Roboto_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
-import "material-symbols/rounded.css";
-import ClientLayout from "@/components/ClientLayout";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-sans",
+const inter = Inter({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["900"],
 });
 
-const robotoMono = Roboto_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
+});
+
+const notoSerifSC = Noto_Serif_SC({
+  variable: "--font-cn",
+  subsets: ["chinese-simplified"],
+  weight: ["400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -22,6 +26,21 @@ export const metadata: Metadata = {
   authors: [{ name: "Chongxi" }],
   icons: {
     icon: "https://github.com/ChongxiSama.png",
+  },
+  openGraph: {
+    title: "Chongxi's Homepage | CEPATO",
+    description: "Full Stack Developer, Web3 Researcher & Tech Blogger.",
+    url: "https://chongxi.us/",
+    siteName: "Chongxi's Digital Hub",
+    images: [
+      {
+        url: "https://github.com/ChongxiSama.png",
+        width: 800,
+        height: 800,
+      },
+    ],
+    locale: "zh_CN",
+    type: "website",
   },
 };
 
@@ -61,7 +80,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className="scroll-smooth">
       <head>
         <script
           type="application/ld+json"
@@ -69,9 +88,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${plusJakartaSans.variable} ${robotoMono.variable} antialiased`}
+        className={`${inter.variable} ${ibmPlexMono.variable} ${notoSerifSC.variable} antialiased bg-[#D6D0C2] min-h-screen`}
       >
-        <ClientLayout>{children}</ClientLayout>
+        {children}
       </body>
     </html>
   );

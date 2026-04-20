@@ -1,12 +1,9 @@
-// config.ts
-
 type T = {
   [key: string]: any;
 };
 
 export const homepageTitle = "Chongxi's Homepage";
 
-// Profile
 export const profile: T = {
   name: "Chongxi",
   role: "ROOT",
@@ -28,7 +25,6 @@ export const profile: T = {
   },
 };
 
-// Social
 export const connectLinks: T[] = [
   {
     platform: "GitHub",
@@ -60,7 +56,6 @@ export const connectLinks: T[] = [
   },
 ];
 
-// Personal
 export const personalLinks: T[] = [
   {
     platform: "Atlas",
@@ -71,7 +66,7 @@ export const personalLinks: T[] = [
   {
     platform: "Spotify",
     description: "Live listening activity.",
-    url: "https://open.spotify.com/user/your_spotify_id", // Replace with actual profile URL
+    url: "https://open.spotify.com/user/your_spotify_id", 
     icon: "music_note",
     live: true,
     type: "spotify"
@@ -87,7 +82,6 @@ export const personalLinks: T[] = [
 ];
 
 
-// Section
 export const sections: T = {
   uplink: "Network Uplink",
   personalNodes: "Personal Nodes",
@@ -96,7 +90,6 @@ export const sections: T = {
   dashboard: "Network Status",
 };
 
-// Project
 export const projects: T[] = [
   {
     title: "CESHRC-A001",
@@ -108,7 +101,6 @@ export const projects: T[] = [
   },
 ];
 
-// Dashboard
 export const dashboard: T = {
   servers: [
     { name: "main", url: "https://chongxi.us", connected: true },
@@ -123,7 +115,6 @@ export const dashboard: T = {
   ],
 };
 
-// Footer
 export const footer: T = {
   line1: `© ${new Date().getFullYear()} All Rights Reserved.`,
   line2: "MoeICP-20250591 // END OF LINE",
