@@ -158,8 +158,8 @@ const SignalMonitor = ({ title }: { title: string }) => {
             {steam.gameextrainfo ? steam.gameextrainfo : (steam.personastate && steam.personastate > 0 ? 'Online' : 'Offline')}
           </span>
         </div>
-        <div className="flex items-start justify-between py-4">
-          <div className="flex items-center gap-2 mt-1">
+        <div className="flex items-center justify-between py-4">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">BILI ·</span>
             {!status ? (
               <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">Recent</span>
@@ -167,11 +167,6 @@ const SignalMonitor = ({ title }: { title: string }) => {
               <div className="flex items-center gap-2">
                 <span className="font-mono text-[11px] text-lt-accent font-black uppercase tracking-widest">Live</span>
                 <span className="text-lt-accent opacity-50">•</span>
-                <div className="flex gap-[2px]">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className={`w-1 h-2 rounded-[0.5px] ${status.percent >= (i + 1) * 20 ? 'bg-lt-accent' : 'bg-lt-accent/20'}`}></div>
-                  ))}
-                </div>
                 <span className="font-mono text-[10px] text-lt-accent font-black">{status.percent}%</span>
               </div>
             ) : (
@@ -183,16 +178,22 @@ const SignalMonitor = ({ title }: { title: string }) => {
             )}
           </div>
           {bilibili.title ? (
-            <a 
-              href={`https://www.bilibili.com/video/${bilibili.bvid}`} 
-              target="_blank" 
-              rel="noreferrer"
-              className="group/bili max-w-[60%] text-right"
-            >
-              <span className="font-display text-[13px] uppercase font-black text-lt-accent line-clamp-2 group-hover:underline leading-tight">
-                {bilibili.title}
-              </span>
-            </a>
+            <div className="flex-1 ml-8 overflow-hidden relative">
+              <a 
+                href={`https://www.bilibili.com/video/${bilibili.bvid}`} 
+                target="_blank" 
+                rel="noreferrer"
+                className="group/bili block text-right overflow-hidden whitespace-nowrap"
+              >
+                <div className="inline-block hover:underline">
+                  <span className="font-display text-[13px] uppercase font-black text-lt-accent animate-marquee pr-12">
+                    {bilibili.title} &nbsp; {bilibili.title}
+                  </span>
+                </div>
+              </a>
+              <div className="absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-lt-bg to-transparent pointer-events-none z-10"></div>
+              <div className="absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-lt-bg to-transparent pointer-events-none z-10"></div>
+            </div>
           ) : (
             <span className="font-display text-[15px] uppercase font-black text-lt-ghost">Offline</span>
           )}
