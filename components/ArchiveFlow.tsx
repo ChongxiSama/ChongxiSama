@@ -101,23 +101,39 @@ const SyncProgress = () => {
 
 const SignalMonitor = ({ title }: { title: string }) => {
   const [spotify, setSpotify] = useState<{ isPlaying: boolean; title?: string; artist?: string }>({ isPlaying: false });
-  const [steam, setSteam] = useState<{ personaname?: string; gameextrainfo?: string }>({});
+  const [steam, setSteam] = useState<{ personastate?: number; gameextrainfo?: string }>({});
+  const [bilibili, setBilibili] = useState<{ title?: string; progress?: number; duration?: number; bvid?: string }>({});
 
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const spotRes = await fetch('/api/spotify/now-playing');
+        const [spotRes, steamRes, biliRes] = await Promise.all([
+          fetch('/api/spotify/now-playing'),
+          fetch('/api/steam/status'),
+          fetch('/api/bilibili/recent')
+        ]);
+        
         const spotData = await spotRes.json();
         setSpotify(spotData);
-        const steamRes = await fetch('/api/steam/status');
+        
         const steamData = await steamRes.json();
         setSteam(steamData);
+
+        const biliData = await biliRes.json();
+        setBilibili(biliData);
       } catch (e) {}
     };
     fetchStatus();
     const interval = setInterval(fetchStatus, 30000);
     return () => clearInterval(interval);
   }, []);
+
+  const formatBiliProgress = (progress: number, duration: number) => {
+    if (progress === -1) return 'Finished';
+    if (!duration) return 'Watching';
+    const percent = Math.floor((progress / duration) * 100);
+    return `${percent}%`;
+  };
 
   return (
     <section className="mt-12">
@@ -131,11 +147,31 @@ const SignalMonitor = ({ title }: { title: string }) => {
             ) : 'Offline'}
           </span>
         </div>
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-4 border-b border-lt-border">
           <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">STM · In Session</span>
           <span className={`font-display text-[15px] uppercase font-black transition-colors ${steam.personastate && steam.personastate > 0 ? 'text-lt-accent' : 'text-lt-ghost'}`}>
             {steam.gameextrainfo ? steam.gameextrainfo : (steam.personastate && steam.personastate > 0 ? 'Online' : 'Offline')}
           </span>
+        </div>
+        <div className="flex items-center justify-between py-4">
+          <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">BILI · Recent</span>
+          {bilibili.title ? (
+            <a 
+              href={`https://www.bilibili.com/video/${bilibili.bvid}`} 
+              target="_blank" 
+              rel="noreferrer"
+              className="group/bili flex items-center gap-2 max-w-[60%] text-right"
+            >
+              <span className="font-display text-[15px] uppercase font-black text-lt-accent truncate group-hover:underline">
+                {bilibili.title}
+              </span>
+              <span className="flex-shrink-0 font-mono text-[10px] px-1.5 py-0.5 border border-lt-accent text-lt-accent font-bold rounded-sm">
+                {formatBiliProgress(bilibili.progress || 0, bilibili.duration || 0)}
+              </span>
+            </a>
+          ) : (
+            <span className="font-display text-[15px] uppercase font-black text-lt-ghost">Offline</span>
+          )}
         </div>
       </div>
     </section>
