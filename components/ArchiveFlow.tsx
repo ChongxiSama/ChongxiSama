@@ -186,8 +186,11 @@ const SignalMonitor = ({ title }: { title: string }) => {
                 className="group/bili block text-right overflow-hidden whitespace-nowrap"
               >
                 <div className="inline-block hover:underline">
-                  <span className="font-display text-[13px] uppercase font-black text-lt-accent animate-marquee pr-12">
-                    {bilibili.title} &nbsp; {bilibili.title}
+                  <span className="font-display text-[13px] uppercase font-black text-lt-accent animate-marquee pr-24">
+                    {bilibili.title}
+                  </span>
+                  <span className="font-display text-[13px] uppercase font-black text-lt-accent animate-marquee pr-24">
+                    {bilibili.title}
                   </span>
                 </div>
               </a>
