@@ -153,16 +153,16 @@ const SignalMonitor = ({ title }: { title: string }) => {
             {steam.gameextrainfo ? steam.gameextrainfo : (steam.personastate && steam.personastate > 0 ? 'Online' : 'Offline')}
           </span>
         </div>
-        <div className="flex items-center justify-between py-4">
-          <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest">BILI · Recent</span>
+        <div className="flex items-start justify-between py-4">
+          <span className="font-mono text-[11px] text-lt-ghost font-bold uppercase tracking-widest mt-1">BILI · Recent</span>
           {bilibili.title ? (
             <a 
               href={`https://www.bilibili.com/video/${bilibili.bvid}`} 
               target="_blank" 
               rel="noreferrer"
-              className="group/bili flex items-center gap-2 max-w-[60%] text-right"
+              className="group/bili flex flex-col items-end gap-1 max-w-[70%] text-right"
             >
-              <span className="font-display text-[15px] uppercase font-black text-lt-accent truncate group-hover:underline">
+              <span className="font-display text-[15px] uppercase font-black text-lt-accent line-clamp-2 group-hover:underline leading-tight">
                 {bilibili.title}
               </span>
               <span className="flex-shrink-0 font-mono text-[10px] px-1.5 py-0.5 border border-lt-accent text-lt-accent font-bold rounded-sm">
