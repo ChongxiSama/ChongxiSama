@@ -162,7 +162,7 @@ const SignalMonitor = ({ title }: { title: string }) => {
               rel="noreferrer"
               className="group/bili flex flex-col items-end gap-1 max-w-[70%] text-right"
             >
-              <span className="font-display text-[15px] uppercase font-black text-lt-accent line-clamp-2 group-hover:underline leading-tight">
+              <span className="font-display text-[13px] uppercase font-black text-lt-accent line-clamp-2 group-hover:underline leading-tight">
                 {bilibili.title}
               </span>
               <span className="flex-shrink-0 font-mono text-[10px] px-1.5 py-0.5 border border-lt-accent text-lt-accent font-bold rounded-sm">
