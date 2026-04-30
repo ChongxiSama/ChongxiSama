@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [Ch.01：如何初始化Go环境并跑通第一个代码](https://xice.cx/posts/ch02-SetupGolang/)
+- [Ch.0： 为什么要学Golang](https://xice.cx/posts/ch01-whyGolang/)
 - [如何在Firefox手机版开启开发者安装本地插件](https://xice.cx/posts/firefoxAndroidInstallExtended/)
 - [2026年，仍有人在写博客](https://xice.cx/posts/blogIn2026/)
 - [Nekogram后门事件：你的手机号已被偷偷上传](https://xice.cx/posts/336CautionNekogram/)
-- [git到底是什么?一文讲通git第一性原理和诞生的历史](https://xice.cx/posts/whatIsGit/)
-- [Android到底是不是Linux？一文解清你的所有疑惑](https://xice.cx/posts/isAndroidByLinux/)
 <!-- BLOG-POST-LIST:END -->
