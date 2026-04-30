@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
-- [Ch.01：如何初始化Go环境并跑通第一个代码](https://xice.cx/posts/ch02-SetupGolang/)
-- [Ch.0： 为什么要学Golang](https://xice.cx/posts/ch01-whyGolang/)
+- [Ch.02：Go程序是怎么运行的](https://xice.cx/posts/ch02-HowGoRun/)
+- [Ch.01：如何初始化Go环境并跑通第一个代码](https://xice.cx/posts/ch01-SetupGolang/)
+- [Ch.00： 为什么要学Golang](https://xice.cx/posts/ch00-whyGolang/)
 - [如何在Firefox手机版开启开发者安装本地插件](https://xice.cx/posts/firefoxAndroidInstallExtended/)
 - [2026年，仍有人在写博客](https://xice.cx/posts/blogIn2026/)
-- [Nekogram后门事件：你的手机号已被偷偷上传](https://xice.cx/posts/336CautionNekogram/)
 <!-- BLOG-POST-LIST:END -->
