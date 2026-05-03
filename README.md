@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [Ch.06：Go里的常量与iota](https://xice.cx/posts/ch06-costIotaInGolang/)
+- [Ch.05：字符串进阶篇](https://xice.cx/posts/ch05-StringInGo/)
+- [Ch.04：Go的基本数据类型](https://xice.cx/posts/ch04-dtyInGo/)
 - [Ch.03：Golang的变量](https://xice.cx/posts/ch03-VarInGo/)
 - [Ch.02：Go程序是怎么运行的](https://xice.cx/posts/ch02-HowGoRun/)
-- [Ch.01：如何初始化Go环境并跑通第一个代码](https://xice.cx/posts/ch01-SetupGolang/)
-- [Ch.00： 为什么要学Golang](https://xice.cx/posts/ch00-whyGolang/)
-- [如何在Firefox手机版开启开发者安装本地插件](https://xice.cx/posts/firefoxAndroidInstallExtended/)
 <!-- BLOG-POST-LIST:END -->
