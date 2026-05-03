@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [Ch.07：Go的类型转换](https://xice.cx/posts/ch07-tpCnvInGo/)
 - [Ch.06：Go里的常量与iota](https://xice.cx/posts/ch06-costIotaInGolang/)
 - [Ch.05：字符串进阶篇](https://xice.cx/posts/ch05-StringInGo/)
 - [Ch.04：Go的基本数据类型](https://xice.cx/posts/ch04-dtyInGo/)
 - [Ch.03：Golang的变量](https://xice.cx/posts/ch03-VarInGo/)
-- [Ch.02：Go程序是怎么运行的](https://xice.cx/posts/ch02-HowGoRun/)
 <!-- BLOG-POST-LIST:END -->
