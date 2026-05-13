@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [合法吃人：明日方舟哥伦比亚剧情解构-孤岛风云篇](https://xice.cx/posts/ArknightsStoryMansfieldBreak/)
 - [如何给明日方舟终末地解锁最高画质](https://xice.cx/posts/unlockEndfieldHighQuality/)
 - [Ch.07：Go的类型转换](https://xice.cx/posts/ch07-tpCnvInGo/)
 - [Ch.06：Go里的常量与iota](https://xice.cx/posts/ch06-costIotaInGolang/)
 - [Ch.05：字符串进阶篇](https://xice.cx/posts/ch05-StringInGo/)
-- [Ch.04：Go的基本数据类型](https://xice.cx/posts/ch04-dtyInGo/)
 <!-- BLOG-POST-LIST:END -->
