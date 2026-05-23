@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [Perfect Imperfections](https://xice.cx/posts/PerfectImperfections/)
 - [我开源了我的孤星主题blog作为模板](https://xice.cx/posts/lonetrail/)
 - [手机玩电脑Minecraft Java版教程](https://xice.cx/posts/BestMcLauncherOnAndroid/)
 - [AI 与 知识平权](https://xice.cx/posts/AIvsKnowledgEquality/)
 - [Ch.08：Go的运算符](https://xice.cx/posts/ch08-Operators/)
-- [合法吃人：明日方舟哥伦比亚剧情解构-孤岛风云篇](https://xice.cx/posts/ArknightsStoryMansfieldBreak/)
 <!-- BLOG-POST-LIST:END -->
