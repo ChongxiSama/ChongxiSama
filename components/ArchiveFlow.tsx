@@ -508,6 +508,37 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           </div>
         </ArchiveCard>
 
+        {/* Support Us */}
+        <div className="relative w-full max-w-[840px] bg-lt-bg paper-texture shadow-2xl px-6 md:px-16 py-10 md:py-12 overflow-hidden border-b border-lt-border/20">
+          <div className="absolute top-0 right-0 p-4 opacity-[0.04] pointer-events-none">
+            <svg width="140" height="140" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2,21V19H20V21H2M20,7H17V3H20V7M17,17H6V9H17V17Z" />
+            </svg>
+          </div>
+
+          <div className="relative z-10 flex flex-col gap-6">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <div className="w-[3px] h-[10px] bg-lt-accent" />
+                <span className="text-[11px] font-mono tracking-[0.2em] font-semibold text-lt-ink uppercase">
+                  Donation_Channel
+                </span>
+              </div>
+            </div>
+
+            <p className="font-cn text-[15px] text-lt-ink leading-relaxed">
+              Financial support helps keep the servers online and the research ongoing.
+            </p>
+
+            <a href="https://xice.cx/donate/" target="_blank" rel="noopener noreferrer" 
+               className="group relative border border-lt-border bg-lt-bg w-full text-center py-3 px-6 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg">
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink" />
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink" />
+              Donate
+            </a>
+          </div>
+        </div>
+
         <footer className="w-full max-w-[840px] flex flex-col sm:flex-row justify-between items-end border-t-2 border-lt-ink pt-6 mb-16 text-lt-muted font-mono text-[11px] gap-4 relative z-10">
           <div className="uppercase tracking-[0.2em] font-bold opacity-60">
             © {new Date().getFullYear()} Chongxi & CEPATO
