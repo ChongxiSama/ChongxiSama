@@ -205,6 +205,7 @@ export default function JieYuanFilter() {
           type="file"
           accept="image/*"
           onChange={handleUpload}
+          onClick={(e) => { e.currentTarget.value = '' }}
           className="hidden"
           id="jieyuan-upload"
         />
