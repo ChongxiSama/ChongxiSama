@@ -591,12 +591,12 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           <div className="absolute inset-0 z-[2] paper-texture opacity-20 pointer-events-none"></div>
 
           <div className="relative z-10">
-            <div className="text-sm text-right text-lt-bg/60 font-display">
-              Copyright &copy; {new Date().getFullYear()} <span className="text-lt-accent font-semibold">Chongxi &amp; CEPATO</span><br/>
+            <div className="text-sm text-right text-lt-bg/60 font-novecento">
+              Copyright &copy; {new Date().getFullYear()} <span className="text-lt-accent">Chongxi &amp; CEPATO</span><br/>
               <span className="opacity-50">Powered by</span>
-              <a className="text-lt-accent font-medium hover:underline" href="https://nextjs.org" target="_blank" rel="noreferrer"> Next.js</a>
+              <a className="text-lt-accent font-medium hover:underline transition" href="https://nextjs.org" target="_blank" rel="noreferrer"> Next.js</a>
               <span className="opacity-50"> &amp; </span>
-              <a className="text-lt-accent font-medium hover:underline" href="https://github.com/ChongxiSama" target="_blank" rel="noreferrer"> CEPATO</a>
+              <a className="text-lt-accent font-medium hover:underline transition" href="https://github.com/ChongxiSama" target="_blank" rel="noreferrer"> CEPATO</a>
               <span className="text-[0.65rem] opacity-30 mt-3 block uppercase tracking-widest">Non-Collaborative_Entity // Protocol_V.4.21</span>
             </div>
           </div>

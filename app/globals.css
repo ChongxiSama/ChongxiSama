@@ -16,8 +16,33 @@
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
   --font-cn: var(--font-cn);
+  --font-novecento: "Novecento Sans Wide", sans-serif;
 
   --animate-enter: enter 400ms ease-out forwards;
+}
+
+@font-face {
+  font-family: "Novecento Sans Wide";
+  src: url("/fonts/Novecentosanswide-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Novecento Sans Wide";
+  src: url("/fonts/Novecentosanswide-Normal.otf") format("opentype");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Novecento Sans Wide";
+  src: url("/fonts/Novecentosanswide-DemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @keyframes enter {
@@ -33,6 +58,11 @@
 
 @utility paper-texture {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+@utility font-novecento {
+  font-family: var(--font-novecento);
+  font-weight: 600;
 }
 
 @utility rp-stamp {
