@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif'];
 const MAX_SIZE = 20 * 1024 * 1024;
+const MAX_DIM = 2048;
 
 interface Params {
   color: number;
@@ -37,6 +38,8 @@ export default function JieYuanFilter() {
     const w = canvas.width;
     const h = canvas.height;
 
+    if (w === 0 || h === 0) return;
+
     ctx.drawImage(img, 0, 0);
 
     const colorAlpha = p.color / 100;
@@ -56,47 +59,53 @@ export default function JieYuanFilter() {
     ctx.globalCompositeOperation = 'source-over';
 
     if (p.shift > 0) {
-      const imgData = ctx.getImageData(0, 0, w, h);
-      const pixels = imgData.data;
-      const outData = ctx.createImageData(w, h);
-      const outPixels = outData.data;
-      const offset = Math.floor((w / 1500) * p.shift) || 1;
+      try {
+        const imgData = ctx.getImageData(0, 0, w, h);
+        const pixels = imgData.data;
+        const outData = ctx.createImageData(w, h);
+        const outPixels = outData.data;
+        const offset = Math.floor((w / 1500) * p.shift) || 1;
 
-      for (let y = 0; y < h; y++) {
-        for (let x = 0; x < w; x++) {
-          const i = (y * w + x) * 4;
-          const rx = x - offset;
-          const ri = (y * w + rx) * 4;
-          outPixels[i] = (rx >= 0) ? pixels[ri] : pixels[i];
-          outPixels[i + 1] = pixels[i + 1];
-          outPixels[i + 2] = pixels[i + 2];
-          outPixels[i + 3] = pixels[i + 3];
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const i = (y * w + x) * 4;
+            const rx = x - offset;
+            const ri = (y * w + rx) * 4;
+            outPixels[i] = (rx >= 0) ? pixels[ri] : pixels[i];
+            outPixels[i + 1] = pixels[i + 1];
+            outPixels[i + 2] = pixels[i + 2];
+            outPixels[i + 3] = pixels[i + 3];
+          }
         }
-      }
-      ctx.putImageData(outData, 0, 0);
+        ctx.putImageData(outData, 0, 0);
+      } catch {}
     }
 
     const glowAlpha = p.glow / 100;
     if (glowAlpha > 0) {
-      ctx.globalCompositeOperation = 'screen';
-      ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
-      ctx.globalAlpha = glowAlpha;
-      ctx.drawImage(canvas, 0, 0);
-      ctx.filter = 'none';
-      ctx.globalAlpha = 1.0;
-      ctx.globalCompositeOperation = 'source-over';
+      try {
+        ctx.globalCompositeOperation = 'screen';
+        ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
+        ctx.globalAlpha = glowAlpha;
+        ctx.drawImage(canvas, 0, 0);
+        ctx.filter = 'none';
+        ctx.globalAlpha = 1.0;
+        ctx.globalCompositeOperation = 'source-over';
+      } catch {}
     }
 
     if (p.noise > 0) {
-      const finalData = ctx.getImageData(0, 0, w, h);
-      const fPixels = finalData.data;
-      for (let i = 0; i < fPixels.length; i += 4) {
-        const noise = (Math.random() - 0.5) * (p.noise * 2);
-        fPixels[i] += noise;
-        fPixels[i + 1] += noise;
-        fPixels[i + 2] += noise;
-      }
-      ctx.putImageData(finalData, 0, 0);
+      try {
+        const finalData = ctx.getImageData(0, 0, w, h);
+        const fPixels = finalData.data;
+        for (let i = 0; i < fPixels.length; i += 4) {
+          const noise = (Math.random() - 0.5) * (p.noise * 2);
+          fPixels[i] += noise;
+          fPixels[i + 1] += noise;
+          fPixels[i + 2] += noise;
+        }
+        ctx.putImageData(finalData, 0, 0);
+      } catch {}
     }
 
     ctx.filter = `brightness(${p.bright / 100}) contrast(${p.contrast / 100}) saturate(${p.saturate / 100})`;
@@ -138,9 +147,28 @@ export default function JieYuanFilter() {
     const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
-      imageRef.current = img;
-      setLoadKey((k) => k + 1);
-      URL.revokeObjectURL(url);
+      let w = img.width;
+      let h = img.height;
+      if (w > MAX_DIM || h > MAX_DIM) {
+        const scale = Math.min(MAX_DIM / w, MAX_DIM / h);
+        w = Math.floor(w * scale);
+        h = Math.floor(h * scale);
+      }
+      const scaled = new Image();
+      scaled.onload = () => {
+        imageRef.current = scaled;
+        setLoadKey((k) => k + 1);
+        URL.revokeObjectURL(url);
+      };
+      if (w !== img.width || h !== img.height) {
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        const cx = c.getContext('2d');
+        cx?.drawImage(img, 0, 0, w, h);
+        scaled.src = c.toDataURL();
+      } else {
+        scaled.src = img.src;
+      }
     };
     img.onerror = () => {
       setError('图片加载失败，请尝试其他文件');
@@ -285,7 +313,7 @@ export default function JieYuanFilter() {
             >
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-              Download
+              下载
             </button>
             <button
               onClick={handleReset}
@@ -293,7 +321,7 @@ export default function JieYuanFilter() {
             >
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-              Reset
+              重置
             </button>
           </div>
         </div>
