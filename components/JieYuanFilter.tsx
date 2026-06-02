@@ -228,70 +228,66 @@ export default function JieYuanFilter() {
           </p>
         )}
 
-        {loadKey === 0 && !error && (
-          <p className="font-cn text-[15px] text-lt-muted text-center leading-relaxed max-w-md">
-            选择一张图片，应用界园风格滤镜效果
-          </p>
-        )}
-
-        {loadKey > 0 && (
-          <div className="w-full space-y-4">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 p-4 border border-lt-border bg-lt-surface/30">
-              {controls.map(({ key, label, min, max }) => (
-                <div key={key} className="flex flex-col gap-1">
-                  <div className="flex justify-between items-baseline">
-                    <span className="font-mono text-[9px] text-lt-muted font-bold uppercase tracking-widest">
-                      {label}
-                    </span>
-                    <span className="font-mono text-[9px] text-lt-accent font-black tabular-nums">
-                      {formatLabel(key)}
-                    </span>
-                  </div>
-                  <input
-                    type="range"
-                    min={min}
-                    max={max}
-                    value={params[key]}
-                    onChange={(e) => {
-                      const v = parseInt(e.target.value);
-                      updateParam(key, v);
-                    }}
-                    className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent"
-                  />
+        <div className="w-full space-y-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 p-4 border border-lt-border bg-lt-surface/30">
+            {controls.map(({ key, label, min, max }) => (
+              <div key={key} className="flex flex-col gap-1">
+                <div className="flex justify-between items-baseline">
+                  <span className="font-mono text-[9px] text-lt-muted font-bold uppercase tracking-widest">
+                    {label}
+                  </span>
+                  <span className="font-mono text-[9px] text-lt-accent font-black tabular-nums">
+                    {formatLabel(key)}
+                  </span>
                 </div>
-              ))}
-            </div>
-
-            <div className="relative border border-lt-border p-1 bg-lt-surface/20">
-              <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-              <canvas
-                ref={canvasRef}
-                onClick={handleView}
-                className="w-full h-auto cursor-pointer block"
-              />
-            </div>
-
-            <div className="flex gap-3 justify-center">
-              <button
-                onClick={handleDownload}
-                className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-              >
-                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-                Download
-              </button>
-              <button
-                onClick={handleReset}
-                className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-              >
-                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-                Reset
-              </button>
-            </div>
+                <input
+                  type="range"
+                  min={min}
+                  max={max}
+                  value={params[key]}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    updateParam(key, v);
+                  }}
+                  className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent"
+                />
+              </div>
+            ))}
           </div>
-        )}
+
+          {loadKey > 0 && (
+            <>
+              <div className="relative border border-lt-border p-1 bg-lt-surface/20">
+                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+                <canvas
+                  ref={canvasRef}
+                  onClick={handleView}
+                  className="w-full h-auto cursor-pointer block"
+                />
+              </div>
+
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={handleDownload}
+                  className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+                >
+                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+                  Download
+                </button>
+                <button
+                  onClick={handleReset}
+                  className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+                >
+                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+                  Reset
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );
