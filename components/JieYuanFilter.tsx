@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 
-const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif'];
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_SIZE = 20 * 1024 * 1024;
 const MAX_DIM = 2048;
 
@@ -18,14 +18,9 @@ interface Params {
 
 const DEFAULTS: Params = { color: 30, shift: 4, glow: 20, noise: 12, bright: 100, contrast: 100, saturate: 100 };
 
-function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
-  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
-}
-
 export default function JieYuanFilter() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [params, setParams] = useState<Params>(DEFAULTS);
   const [loadKey, setLoadKey] = useState(0);
   const [error, setError] = useState('');
@@ -34,16 +29,15 @@ export default function JieYuanFilter() {
     const canvas = canvasRef.current;
     const img = imageRef.current;
     if (!canvas || !img) return;
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let { naturalWidth: w, naturalHeight: h } = img;
-    const scale = Math.min(MAX_DIM / w, MAX_DIM / h, 1);
-    w = Math.floor(w * scale);
-    h = Math.floor(h * scale);
-
+    let w = img.naturalWidth;
+    let h = img.naturalHeight;
     if (w === 0 || h === 0) return;
-
+    const s = Math.min(MAX_DIM / w, MAX_DIM / h, 1);
+    w = Math.floor(w * s);
+    h = Math.floor(h * s);
     canvas.width = w;
     canvas.height = h;
 
@@ -65,32 +59,33 @@ export default function JieYuanFilter() {
 
     if (p.shift > 0) {
       try {
-        const src = ctx.getImageData(0, 0, w, h);
-        const out = ctx.createImageData(w, h);
-        const offset = Math.floor((w / 1500) * p.shift) || 1;
+        const sd = ctx.getImageData(0, 0, w, h);
+        const dd = ctx.createImageData(w, h);
+        const off = Math.floor((w / 1500) * p.shift) || 1;
         for (let y = 0; y < h; y++) {
           for (let x = 0; x < w; x++) {
             const i = (y * w + x) * 4;
-            const ri = (y * w + Math.max(0, x - offset)) * 4;
-            out.data[i] = src.data[ri];
-            out.data[i + 1] = src.data[i + 1];
-            out.data[i + 2] = src.data[i + 2];
-            out.data[i + 3] = src.data[i + 3];
+            const ri = (y * w + Math.max(0, x - off)) * 4;
+            dd.data[i] = sd.data[ri];
+            dd.data[i + 1] = sd.data[i + 1];
+            dd.data[i + 2] = sd.data[i + 2];
+            dd.data[i + 3] = sd.data[i + 3];
           }
         }
-        ctx.putImageData(out, 0, 0);
+        ctx.putImageData(dd, 0, 0);
       } catch {}
     }
 
-    const ga = p.glow / 100;
-    if (ga > 0) {
-      ctx.globalCompositeOperation = 'screen';
-      ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
-      ctx.globalAlpha = ga;
-      ctx.drawImage(canvas, 0, 0);
-      ctx.filter = 'none';
-      ctx.globalAlpha = 1.0;
-      ctx.globalCompositeOperation = 'source-over';
+    if (p.glow > 0) {
+      try {
+        const ga = p.glow / 100;
+        ctx.save();
+        ctx.globalCompositeOperation = 'screen';
+        ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
+        ctx.globalAlpha = ga;
+        ctx.drawImage(canvas, 0, 0);
+        ctx.restore();
+      } catch {}
     }
 
     if (p.noise > 0) {
@@ -106,9 +101,12 @@ export default function JieYuanFilter() {
       } catch {}
     }
 
-    ctx.filter = `brightness(${p.bright / 100}) contrast(${p.contrast / 100}) saturate(${p.saturate / 100})`;
-    ctx.drawImage(canvas, 0, 0);
-    ctx.filter = 'none';
+    try {
+      ctx.save();
+      ctx.filter = `brightness(${p.bright / 100}) contrast(${p.contrast / 100}) saturate(${p.saturate / 100})`;
+      ctx.drawImage(canvas, 0, 0);
+      ctx.restore();
+    } catch {}
 
     ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
     for (let y = 0; y < h; y += 4) {
@@ -118,7 +116,7 @@ export default function JieYuanFilter() {
 
   useEffect(() => {
     if (loadKey > 0) {
-      const id = setTimeout(() => { applyEffect(params); }, 200);
+      const id = setTimeout(() => applyEffect(params), 200);
       return () => clearTimeout(id);
     }
   }, [loadKey, params, applyEffect]);
@@ -127,75 +125,65 @@ export default function JieYuanFilter() {
     const file = e.target.files?.[0];
     if (!file) return;
     setError('');
-
     if (!ALLOWED_TYPES.includes(file.type)) {
-      setError('仅支持图片文件 (JPEG/PNG/WebP/GIF/AVIF)');
+      setError('仅支持 JPEG/PNG/WebP 格式');
       return;
     }
     if (file.size > MAX_SIZE) {
-      setError('文件大小超过 20 MiB 限制');
+      setError('文件大小超过 20 MiB');
       return;
     }
 
-    const url = URL.createObjectURL(file);
-    const img = new Image();
-    img.onload = () => {
-      imageRef.current = img;
-      setLoadKey((k) => k + 1);
+    const reader = new FileReader();
+    reader.onerror = () => setError('文件读取失败，重试');
+    reader.onload = (ev) => {
+      const img = new Image();
+      img.onerror = () => setError('图片解析失败');
+      img.onload = () => {
+        img.decode().then(() => {
+          imageRef.current = img;
+          setLoadKey((k) => k + 1);
+        }).catch(() => setError('图片解码失败'));
+      };
+      img.src = ev.target!.result as string;
     };
-    img.onerror = () => {
-      setError('图片加载失败');
-      URL.revokeObjectURL(url);
-    };
-    img.src = url;
+    reader.readAsDataURL(file);
   };
 
-  const handleDownload = async () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    try {
-      const blob = await canvasToBlob(canvas);
-      if (!blob) { setError('导出失败，图片过大'); return; }
-      const link = document.createElement('a');
-      link.download = `JieGarden_${Date.now()}.png`;
-      link.href = URL.createObjectURL(blob);
-      link.click();
-    } catch { setError('导出失败'); }
+  const handleDownload = () => {
+    const c = canvasRef.current;
+    if (!c) return;
+    c.toBlob((b) => {
+      if (!b) { setError('导出失败'); return; }
+      const a = document.createElement('a');
+      a.download = `JieGarden_${Date.now()}.png`;
+      a.href = URL.createObjectURL(b);
+      a.click();
+    });
   };
 
-  const handleReset = () => { setParams(DEFAULTS); };
+  const handleReset = () => setParams(DEFAULTS);
 
-  const handleView = async () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    try {
-      const blob = await canvasToBlob(canvas);
-      if (!blob) return;
-      window.open(URL.createObjectURL(blob), '_blank');
-    } catch {}
+  const handleView = () => {
+    const c = canvasRef.current;
+    if (!c) return;
+    c.toBlob((b) => {
+      if (!b) return;
+      window.open(URL.createObjectURL(b), '_blank');
+    });
   };
 
-  const updateParam = (key: keyof Params, value: number) => {
-    setParams((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const commitRender = () => {
-    if (loadKey > 0) applyEffect(params);
-  };
-
-  const formatLabel = (key: keyof Params) => {
-    const v = params[key];
-    return key === 'shift' ? String(v) : `${v}%`;
-  };
+  const updateParam = (k: keyof Params, v: number) => setParams((p) => ({ ...p, [k]: v }));
+  const commitRender = () => { if (loadKey > 0) applyEffect(params); };
 
   const controls = [
-    { key: 'color' as const, label: '染色浓度', min: 0, max: 100 },
-    { key: 'shift' as const, label: '色散', min: 0, max: 20 },
-    { key: 'glow' as const, label: '辉光', min: 0, max: 100 },
-    { key: 'noise' as const, label: '噪点', min: 0, max: 60 },
-    { key: 'bright' as const, label: '亮度', min: 0, max: 200 },
-    { key: 'contrast' as const, label: '对比度', min: 0, max: 200 },
-    { key: 'saturate' as const, label: '饱和度', min: 0, max: 200 },
+    { key: 'color' as const, label: '染色浓度', min: 0, max: 100, unit: '%' },
+    { key: 'shift' as const, label: '色散', min: 0, max: 20, unit: '' },
+    { key: 'glow' as const, label: '辉光', min: 0, max: 100, unit: '%' },
+    { key: 'noise' as const, label: '噪点', min: 0, max: 60, unit: '' },
+    { key: 'bright' as const, label: '亮度', min: 0, max: 200, unit: '%' },
+    { key: 'contrast' as const, label: '对比度', min: 0, max: 200, unit: '%' },
+    { key: 'saturate' as const, label: '饱和度', min: 0, max: 200, unit: '%' },
   ];
 
   return (
@@ -210,11 +198,10 @@ export default function JieYuanFilter() {
 
       <div className="flex flex-col items-center gap-6">
         <input
-          ref={fileInputRef}
           type="file"
-          accept="image/*"
+          accept="image/jpeg,image/png,image/webp"
           onChange={handleUpload}
-          onClick={(e) => { e.currentTarget.value = ''; }}
+          onClick={(e) => { (e.target as HTMLInputElement).value = ''; }}
           className="hidden"
           id="jieyuan-upload"
         />
@@ -236,22 +223,15 @@ export default function JieYuanFilter() {
             {controls.map(({ key, label, min, max }) => (
               <div key={key} className="flex flex-col gap-1">
                 <div className="flex justify-between items-baseline">
-                  <span className="font-mono text-[9px] text-lt-muted font-bold uppercase tracking-widest">
-                    {label}
-                  </span>
+                  <span className="font-mono text-[9px] text-lt-muted font-bold uppercase tracking-widest">{label}</span>
                   <span className="font-mono text-[9px] text-lt-accent font-black tabular-nums">
-                    {formatLabel(key)}
+                    {key === 'shift' ? String(params[key]) : `${params[key]}%`}
                   </span>
                 </div>
                 <input
-                  type="range"
-                  min={min}
-                  max={max}
+                  type="range" min={min} max={max}
                   value={params[key]}
-                  onChange={(e) => {
-                    const v = parseInt(e.target.value);
-                    updateParam(key, v);
-                  }}
+                  onChange={(e) => updateParam(key, parseInt(e.target.value))}
                   onPointerUp={commitRender}
                   className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent touch-none"
                 />
@@ -263,11 +243,7 @@ export default function JieYuanFilter() {
             <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
             <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
             {loadKey > 0 ? (
-              <canvas
-                ref={canvasRef}
-                onClick={handleView}
-                className="w-full h-auto cursor-pointer block"
-              />
+              <canvas ref={canvasRef} onClick={handleView} className="w-full h-auto cursor-pointer block" />
             ) : (
               <div className="flex flex-col items-center gap-3 py-12">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-lt-ghost">
@@ -281,18 +257,12 @@ export default function JieYuanFilter() {
           </div>
 
           <div className="flex gap-3 justify-center">
-            <button
-              onClick={handleDownload}
-              className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-            >
+            <button onClick={handleDownload} className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg">
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
               下载
             </button>
-            <button
-              onClick={handleReset}
-              className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-            >
+            <button onClick={handleReset} className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg">
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
               重置
