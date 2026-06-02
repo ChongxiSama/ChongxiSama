@@ -19,7 +19,7 @@ export default function JieYuanFilter() {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [params, setParams] = useState<Params>(DEFAULTS);
-  const [loaded, setLoaded] = useState(false);
+  const [loadKey, setLoadKey] = useState(0);
   const [rendering, setRendering] = useState(false);
   const [error, setError] = useState('');
 
@@ -104,15 +104,15 @@ export default function JieYuanFilter() {
   }, []);
 
   useEffect(() => {
-    if (loaded) {
+    if (loadKey > 0) {
       setRendering(true);
-      const id = setTimeout(() => {
+      const id = requestAnimationFrame(() => {
         applyEffect(params);
         setRendering(false);
-      }, 50);
-      return () => clearTimeout(id);
+      });
+      return () => cancelAnimationFrame(id);
     }
-  }, [loaded, params, applyEffect]);
+  }, [loadKey, params, applyEffect]);
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -136,7 +136,7 @@ export default function JieYuanFilter() {
       const img = new Image();
       img.onload = () => {
         imageRef.current = img;
-        setLoaded(true);
+        setLoadKey((k) => k + 1);
       };
       img.src = event.target?.result as string;
     };
@@ -154,13 +154,6 @@ export default function JieYuanFilter() {
 
   const handleReset = () => {
     setParams(DEFAULTS);
-    if (imageRef.current) {
-      setRendering(true);
-      setTimeout(() => {
-        applyEffect(DEFAULTS);
-        setRendering(false);
-      }, 50);
-    }
   };
 
   const handleView = () => {
@@ -205,7 +198,7 @@ export default function JieYuanFilter() {
         >
           <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
           <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-          {loaded ? '重新选择图片' : '选择图片'}
+          {loadKey > 0 ? '重新选择图片' : '选择图片'}
         </label>
 
         {error && (
@@ -218,13 +211,13 @@ export default function JieYuanFilter() {
           </p>
         )}
 
-        {!loaded && !error && (
+        {loadKey === 0 && !error && (
           <p className="font-cn text-[15px] text-lt-muted text-center leading-relaxed max-w-md">
             选择一张图片，应用界园风格滤镜效果
           </p>
         )}
 
-        {loaded && (
+        {loadKey > 0 && (
           <div className="w-full space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 p-6 border border-lt-border bg-lt-surface/30">
               {([
