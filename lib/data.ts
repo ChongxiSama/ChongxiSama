@@ -53,6 +53,20 @@ export const siteData = {
     {
       id: 4,
       label: "04",
+      title: "Site_Nav",
+      ref: "Nav_Ref: SITE-MAP-001",
+      meta: "Site Topology // Active",
+      watermark: "Nav",
+      links: [
+        { name: "主页", url: "https://chongxi.us", current: true },
+        { name: "Blog", url: "https://xice.cx" },
+        { name: "状态监测站", url: "https://mai.chongxi.us" },
+        { name: "界园风格图片生产器", url: "https://chongxi.us/tool/jieyuan" }
+      ]
+    },
+    {
+      id: 5,
+      label: "05",
       title: "Tech_Spec",
       ref: "Spec_Ref: ARCH-RL-2026",
       meta: "Development Stack // L-05",
@@ -84,8 +98,8 @@ export const siteData = {
       }
     },
     {
-      id: 5,
-      label: "05",
+      id: 6,
+      label: "06",
       title: "Project",
       ref: "Proj_Ref: CESHRC-A001",
       meta: "Engineering Logs // Active",

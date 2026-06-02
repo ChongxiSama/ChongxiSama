@@ -280,6 +280,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
   const c3 = data.chapters[2];
   const c4 = data.chapters[3];
   const c5 = data.chapters[4];
+  const c6 = data.chapters[5];
 
   const formatHandle = (platform: string, url: string) => {
     if (platform === 'Bilibili') {
@@ -423,8 +424,49 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           meta={c4.meta} 
           watermark={c4.watermark}
         >
+          <div className="space-y-10">
+            {c4.links.map((link: any, idx: number) => (
+              <a key={idx} href={link.url} target="_blank" rel="noreferrer" 
+                 className="block group relative -mx-4 px-4 py-2 transition-all duration-300 hover:bg-lt-surface/50 overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-0 bg-lt-accent group-hover:w-[2px] transition-all duration-300"></div>
+                
+                <div className="flex gap-4 items-baseline mb-2 transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="text-[11px] font-mono text-lt-ghost uppercase font-bold">
+                    NAV_0{idx + 1}
+                  </span>
+                  <span className="font-display text-[42px] sm:text-[48px] text-lt-ink uppercase leading-none font-black group-hover:text-lt-accent transition-colors">
+                    {link.name}
+                  </span>
+                </div>
+                <div className="border-t border-lt-border my-2 transition-all duration-300 group-hover:border-lt-accent/30"></div>
+                <div className="flex justify-between items-center transition-transform duration-300 group-hover:translate-x-1">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-lt-muted transition-colors group-hover:text-lt-ink">
+                      {link.url}
+                    </span>
+                    {link.current && (
+                      <span className="text-[9px] font-mono text-lt-accent font-black uppercase tracking-widest">
+                        ● CURRENT
+                      </span>
+                    )}
+                  </div>
+                  <span className="font-display text-2xl text-lt-accent group-hover:translate-x-1 transition-transform font-black">→</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </ArchiveCard>
+
+        <ArchiveCard 
+          id={`chapter-${c5.id}`}
+          chapter={`Chapter_${c5.label}`} 
+          title={c5.title} 
+          refCode={c5.ref} 
+          meta={c5.meta} 
+          watermark={c5.watermark}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-            {c4.sections.map((sec: any, idx: number) => (
+            {c5.sections.map((sec: any, idx: number) => (
               <div key={idx}>
                 <SectionHeader id={`0${idx + 1}`} title={sec.title} />
                 <ul className="space-y-5 font-mono text-[13px] text-lt-ink">
@@ -443,12 +485,12 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
                 <RpStamp />
                 <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-mono text-lt-ghost uppercase font-bold mb-1">{c4.archive_id.label}</p>
-                    <p className="font-display text-xl text-lt-ink uppercase font-black tracking-tight">{c4.archive_id.value}</p>
+                    <p className="text-[10px] font-mono text-lt-ghost uppercase font-bold mb-1">{c5.archive_id.label}</p>
+                    <p className="font-display text-xl text-lt-ink uppercase font-black tracking-tight">{c5.archive_id.value}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] font-mono text-lt-ghost uppercase font-bold mb-1">{c4.archive_id.clearance_label}</p>
-                    <p className="font-mono text-xs text-lt-accent font-black tracking-widest uppercase">{c4.archive_id.clearance_value}</p>
+                    <p className="text-[10px] font-mono text-lt-ghost uppercase font-bold mb-1">{c5.archive_id.clearance_label}</p>
+                    <p className="font-mono text-xs text-lt-accent font-black tracking-widest uppercase">{c5.archive_id.clearance_value}</p>
                   </div>
                 </div>
               </div>
@@ -457,12 +499,12 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
         </ArchiveCard>
 
         <ArchiveCard 
-          id={`chapter-${c5.id}`}
-          chapter={`Chapter_${c5.label}`} 
-          title={c5.title} 
-          refCode={c5.ref} 
-          meta={c5.meta} 
-          watermark={c5.watermark}
+          id={`chapter-${c6.id}`}
+          chapter={`Chapter_${c6.label}`} 
+          title={c6.title} 
+          refCode={c6.ref} 
+          meta={c6.meta} 
+          watermark={c6.watermark}
         >
           <div className="space-y-16">
             {dashboard.projects?.map((proj: any, idx: number) => (
@@ -498,7 +540,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
                   </div>
                   {proj.link && (
                     <a href={proj.link} target="_blank" rel="noreferrer" className="flex items-center gap-3 self-end sm:self-auto group/link">
-                      <span className="font-mono text-[11px] font-bold text-lt-ink uppercase tracking-[0.2em]">{c5.deployment_label}</span>
+                      <span className="font-mono text-[11px] font-bold text-lt-ink uppercase tracking-[0.2em]">{c6.deployment_label}</span>
                       <span className="font-display text-3xl text-lt-ink group-hover/link:translate-x-1 transition-transform font-black text-lt-accent">→</span>
                     </a>
                   )}
