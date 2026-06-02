@@ -50,7 +50,7 @@ export default function JieYuanPage() {
       </div>
 
       <div className="w-full max-w-[840px] mx-auto flex flex-col">
-        <section className="relative w-full bg-lt-bg paper-texture px-6 md:px-16 py-12 md:py-16 overflow-hidden border-b border-lt-border/10">
+        <section className="relative w-full bg-lt-bg paper-texture px-6 md:px-16 py-12 md:py-16 overflow-hidden">
           <div className="absolute -top-10 -right-20 pointer-events-none select-none">
             <span className="font-display text-[150px] md:text-[320px] text-lt-ink opacity-[0.03] leading-none uppercase">
               JIEYUAN
@@ -66,7 +66,7 @@ export default function JieYuanPage() {
           </div>
         </section>
 
-        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden">
+        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden -mt-12 md:-mt-16">
           <div className="absolute inset-0 z-0">
             <img src="/footer-bg.jpg" alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/70"></div>

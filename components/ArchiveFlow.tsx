@@ -581,7 +581,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           </div>
         </div>
 
-        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden">
+        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden -mt-12 md:-mt-16">
           <div className="absolute inset-0 z-0">
             <img src="/footer-bg.jpg" alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/70"></div>
