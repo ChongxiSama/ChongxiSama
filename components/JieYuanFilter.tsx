@@ -121,6 +121,8 @@ export default function JieYuanFilter() {
     }
   }, [loadKey, params, applyEffect]);
 
+  const urlRef = useRef<string | null>(null);
+
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -134,20 +136,22 @@ export default function JieYuanFilter() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onerror = () => setError('文件读取失败，重试');
-    reader.onload = (ev) => {
-      const img = new Image();
-      img.onerror = () => setError('图片解析失败');
-      img.onload = () => {
-        img.decode().then(() => {
-          imageRef.current = img;
-          setLoadKey((k) => k + 1);
-        }).catch(() => setError('图片解码失败'));
-      };
-      img.src = ev.target!.result as string;
+    if (urlRef.current) { URL.revokeObjectURL(urlRef.current); }
+
+    const url = URL.createObjectURL(file);
+    urlRef.current = url;
+    const img = new Image();
+    img.onerror = () => { setError('图片解析失败，文件可能已损坏'); };
+    img.onload = () => {
+      img.decode().then(() => {
+        imageRef.current = img;
+        setLoadKey((k) => k + 1);
+      }).catch(() => {
+        setError('图片解码失败，尝试转换格式');
+        URL.revokeObjectURL(url);
+      });
     };
-    reader.readAsDataURL(file);
+    img.src = url;
   };
 
   const handleDownload = () => {
@@ -198,10 +202,10 @@ export default function JieYuanFilter() {
 
       <div className="flex flex-col items-center gap-6">
         <input
+          key={loadKey}
           type="file"
           accept="image/jpeg,image/png,image/webp"
           onChange={handleUpload}
-          onClick={(e) => { (e.target as HTMLInputElement).value = ''; }}
           className="hidden"
           id="jieyuan-upload"
         />
