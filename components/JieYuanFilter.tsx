@@ -135,22 +135,18 @@ export default function JieYuanFilter() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        imageRef.current = img;
-        setLoadKey((k) => k + 1);
-      };
-      img.onerror = () => {
-        setError('图片加载失败，请尝试其他文件');
-      };
-      img.src = event.target?.result as string;
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      imageRef.current = img;
+      setLoadKey((k) => k + 1);
+      URL.revokeObjectURL(url);
     };
-    reader.onerror = () => {
-      setError('文件读取失败');
+    img.onerror = () => {
+      setError('图片加载失败，请尝试其他文件');
+      URL.revokeObjectURL(url);
     };
-    reader.readAsDataURL(file);
+    img.src = url;
   };
 
   const handleDownload = () => {
