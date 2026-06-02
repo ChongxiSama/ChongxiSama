@@ -23,7 +23,6 @@ export default function JieYuanFilter() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [params, setParams] = useState<Params>(DEFAULTS);
   const [loadKey, setLoadKey] = useState(0);
-  const [rendering, setRendering] = useState(false);
   const [error, setError] = useState('');
 
   const applyEffect = useCallback((p: Params) => {
@@ -112,11 +111,9 @@ export default function JieYuanFilter() {
 
   useEffect(() => {
     if (loadKey > 0) {
-      setRendering(true);
       const id = setTimeout(() => {
         applyEffect(params);
-        setRendering(false);
-      }, 0);
+      }, 200);
       return () => clearTimeout(id);
     }
   }, [loadKey, params, applyEffect]);
@@ -172,11 +169,19 @@ export default function JieYuanFilter() {
   const handleView = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    window.open(canvas.toDataURL('image/png'), '_blank');
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    }, 'image/png');
   };
 
   const updateParam = (key: keyof Params, value: number) => {
     setParams((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const commitRender = () => {
+    if (loadKey > 0) applyEffect(params);
   };
 
   const formatLabel = (key: keyof Params) => {
@@ -228,12 +233,6 @@ export default function JieYuanFilter() {
           <p className="font-mono text-[11px] text-rl-red font-bold">{error}</p>
         )}
 
-        {rendering && (
-          <p className="font-mono text-[11px] text-lt-accent animate-pulse font-bold tracking-widest uppercase">
-            Rendering pixels...
-          </p>
-        )}
-
         <div className="w-full space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 p-4 border border-lt-border bg-lt-surface/30">
             {controls.map(({ key, label, min, max }) => (
@@ -246,17 +245,18 @@ export default function JieYuanFilter() {
                     {formatLabel(key)}
                   </span>
                 </div>
-                <input
-                  type="range"
-                  min={min}
-                  max={max}
-                  value={params[key]}
-                  onChange={(e) => {
-                    const v = parseInt(e.target.value);
-                    updateParam(key, v);
-                  }}
-                  className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent"
-                />
+                  <input
+                    type="range"
+                    min={min}
+                    max={max}
+                    value={params[key]}
+                    onChange={(e) => {
+                      const v = parseInt(e.target.value);
+                      updateParam(key, v);
+                    }}
+                    onPointerUp={commitRender}
+                    className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent touch-none"
+                  />
               </div>
             ))}
           </div>
