@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import JieYuanFilter from "@/components/JieYuanFilter";
 
 export const metadata: Metadata = {
   title: "JieYuan Generator - Chongxi's Homepage",
@@ -56,19 +57,7 @@ export default function JieYuanPage() {
             </span>
           </div>
 
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-[3px] h-[10px] bg-lt-accent"></div>
-            <span className="text-[11px] font-mono tracking-[0.2em] font-semibold text-lt-ink uppercase">
-              Workshop // Generator
-            </span>
-            <div className="flex-1 h-[1px] bg-lt-border"></div>
-          </div>
-
-          <div className="flex flex-col items-center justify-center min-h-[300px]">
-            <p className="font-cn text-[15px] text-lt-muted text-center leading-relaxed max-w-md">
-              Function under development, stay tuned
-            </p>
-          </div>
+          <JieYuanFilter />
 
           <div className="absolute bottom-0 left-0 right-0 h-[3px] flex z-10">
             <div className="bg-rl-teal w-1/3"></div>
