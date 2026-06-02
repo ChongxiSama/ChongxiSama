@@ -18,6 +18,10 @@ interface Params {
 
 const DEFAULTS: Params = { color: 30, shift: 4, glow: 20, noise: 12, bright: 100, contrast: 100, saturate: 100 };
 
+function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob | null> {
+  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+}
+
 export default function JieYuanFilter() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -33,78 +37,72 @@ export default function JieYuanFilter() {
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
 
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const w = canvas.width;
-    const h = canvas.height;
+    let { naturalWidth: w, naturalHeight: h } = img;
+    const scale = Math.min(MAX_DIM / w, MAX_DIM / h, 1);
+    w = Math.floor(w * scale);
+    h = Math.floor(h * scale);
 
     if (w === 0 || h === 0) return;
 
-    ctx.drawImage(img, 0, 0);
+    canvas.width = w;
+    canvas.height = h;
 
-    const colorAlpha = p.color / 100;
-    if (colorAlpha > 0) {
+    ctx.drawImage(img, 0, 0, w, h);
+
+    const ca = p.color / 100;
+    if (ca > 0) {
       ctx.globalCompositeOperation = 'color';
-      ctx.fillStyle = `rgba(255, 80, 150, ${colorAlpha * 0.7})`;
+      ctx.fillStyle = `rgba(255, 80, 150, ${ca * 0.7})`;
       ctx.fillRect(0, 0, w, h);
-
       ctx.globalCompositeOperation = 'overlay';
-      ctx.fillStyle = `rgba(255, 120, 180, ${colorAlpha * 0.4})`;
+      ctx.fillStyle = `rgba(255, 120, 180, ${ca * 0.4})`;
       ctx.fillRect(0, 0, w, h);
-
       ctx.globalCompositeOperation = 'soft-light';
-      ctx.fillStyle = `rgba(0, 255, 200, ${colorAlpha * 0.5})`;
+      ctx.fillStyle = `rgba(0, 255, 200, ${ca * 0.5})`;
       ctx.fillRect(0, 0, w, h);
+      ctx.globalCompositeOperation = 'source-over';
     }
-    ctx.globalCompositeOperation = 'source-over';
 
     if (p.shift > 0) {
       try {
-        const imgData = ctx.getImageData(0, 0, w, h);
-        const pixels = imgData.data;
-        const outData = ctx.createImageData(w, h);
-        const outPixels = outData.data;
+        const src = ctx.getImageData(0, 0, w, h);
+        const out = ctx.createImageData(w, h);
         const offset = Math.floor((w / 1500) * p.shift) || 1;
-
         for (let y = 0; y < h; y++) {
           for (let x = 0; x < w; x++) {
             const i = (y * w + x) * 4;
-            const rx = x - offset;
-            const ri = (y * w + rx) * 4;
-            outPixels[i] = (rx >= 0) ? pixels[ri] : pixels[i];
-            outPixels[i + 1] = pixels[i + 1];
-            outPixels[i + 2] = pixels[i + 2];
-            outPixels[i + 3] = pixels[i + 3];
+            const ri = (y * w + Math.max(0, x - offset)) * 4;
+            out.data[i] = src.data[ri];
+            out.data[i + 1] = src.data[i + 1];
+            out.data[i + 2] = src.data[i + 2];
+            out.data[i + 3] = src.data[i + 3];
           }
         }
-        ctx.putImageData(outData, 0, 0);
+        ctx.putImageData(out, 0, 0);
       } catch {}
     }
 
-    const glowAlpha = p.glow / 100;
-    if (glowAlpha > 0) {
-      try {
-        ctx.globalCompositeOperation = 'screen';
-        ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
-        ctx.globalAlpha = glowAlpha;
-        ctx.drawImage(canvas, 0, 0);
-        ctx.filter = 'none';
-        ctx.globalAlpha = 1.0;
-        ctx.globalCompositeOperation = 'source-over';
-      } catch {}
+    const ga = p.glow / 100;
+    if (ga > 0) {
+      ctx.globalCompositeOperation = 'screen';
+      ctx.filter = `blur(${Math.max(4, Math.floor(w * 0.008))}px)`;
+      ctx.globalAlpha = ga;
+      ctx.drawImage(canvas, 0, 0);
+      ctx.filter = 'none';
+      ctx.globalAlpha = 1.0;
+      ctx.globalCompositeOperation = 'source-over';
     }
 
     if (p.noise > 0) {
       try {
-        const finalData = ctx.getImageData(0, 0, w, h);
-        const fPixels = finalData.data;
-        for (let i = 0; i < fPixels.length; i += 4) {
-          const noise = (Math.random() - 0.5) * (p.noise * 2);
-          fPixels[i] += noise;
-          fPixels[i + 1] += noise;
-          fPixels[i + 2] += noise;
+        const d = ctx.getImageData(0, 0, w, h);
+        for (let i = 0; i < d.data.length; i += 4) {
+          const n = (Math.random() - 0.5) * (p.noise * 2);
+          d.data[i] += n;
+          d.data[i + 1] += n;
+          d.data[i + 2] += n;
         }
-        ctx.putImageData(finalData, 0, 0);
+        ctx.putImageData(d, 0, 0);
       } catch {}
     }
 
@@ -120,9 +118,7 @@ export default function JieYuanFilter() {
 
   useEffect(() => {
     if (loadKey > 0) {
-      const id = setTimeout(() => {
-        applyEffect(params);
-      }, 200);
+      const id = setTimeout(() => { applyEffect(params); }, 200);
       return () => clearTimeout(id);
     }
   }, [loadKey, params, applyEffect]);
@@ -134,70 +130,49 @@ export default function JieYuanFilter() {
 
     if (!ALLOWED_TYPES.includes(file.type)) {
       setError('仅支持图片文件 (JPEG/PNG/WebP/GIF/AVIF)');
-      if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
-
     if (file.size > MAX_SIZE) {
       setError('文件大小超过 20 MiB 限制');
-      if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
 
     const url = URL.createObjectURL(file);
     const img = new Image();
     img.onload = () => {
-      let w = img.width;
-      let h = img.height;
-      if (w > MAX_DIM || h > MAX_DIM) {
-        const scale = Math.min(MAX_DIM / w, MAX_DIM / h);
-        w = Math.floor(w * scale);
-        h = Math.floor(h * scale);
-      }
-      const scaled = new Image();
-      scaled.onload = () => {
-        imageRef.current = scaled;
-        setLoadKey((k) => k + 1);
-        URL.revokeObjectURL(url);
-      };
-      if (w !== img.width || h !== img.height) {
-        const c = document.createElement('canvas');
-        c.width = w; c.height = h;
-        const cx = c.getContext('2d');
-        cx?.drawImage(img, 0, 0, w, h);
-        scaled.src = c.toDataURL();
-      } else {
-        scaled.src = img.src;
-      }
+      imageRef.current = img;
+      setLoadKey((k) => k + 1);
     };
     img.onerror = () => {
-      setError('图片加载失败，请尝试其他文件');
+      setError('图片加载失败');
       URL.revokeObjectURL(url);
     };
     img.src = url;
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const link = document.createElement('a');
-    link.download = `JieGarden_${new Date().getTime()}.png`;
-    link.href = canvas.toDataURL('image/png', 0.9);
-    link.click();
+    try {
+      const blob = await canvasToBlob(canvas);
+      if (!blob) { setError('导出失败，图片过大'); return; }
+      const link = document.createElement('a');
+      link.download = `JieGarden_${Date.now()}.png`;
+      link.href = URL.createObjectURL(blob);
+      link.click();
+    } catch { setError('导出失败'); }
   };
 
-  const handleReset = () => {
-    setParams(DEFAULTS);
-  };
+  const handleReset = () => { setParams(DEFAULTS); };
 
-  const handleView = () => {
+  const handleView = async () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    canvas.toBlob((blob) => {
+    try {
+      const blob = await canvasToBlob(canvas);
       if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      window.open(url, '_blank');
-    }, 'image/png');
+      window.open(URL.createObjectURL(blob), '_blank');
+    } catch {}
   };
 
   const updateParam = (key: keyof Params, value: number) => {
@@ -210,8 +185,7 @@ export default function JieYuanFilter() {
 
   const formatLabel = (key: keyof Params) => {
     const v = params[key];
-    if (key === 'shift') return String(v);
-    return `${v}%`;
+    return key === 'shift' ? String(v) : `${v}%`;
   };
 
   const controls = [
@@ -240,7 +214,7 @@ export default function JieYuanFilter() {
           type="file"
           accept="image/*"
           onChange={handleUpload}
-          onClick={(e) => { e.currentTarget.value = '' }}
+          onClick={(e) => { e.currentTarget.value = ''; }}
           className="hidden"
           id="jieyuan-upload"
         />
@@ -269,18 +243,18 @@ export default function JieYuanFilter() {
                     {formatLabel(key)}
                   </span>
                 </div>
-                  <input
-                    type="range"
-                    min={min}
-                    max={max}
-                    value={params[key]}
-                    onChange={(e) => {
-                      const v = parseInt(e.target.value);
-                      updateParam(key, v);
-                    }}
-                    onPointerUp={commitRender}
-                    className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent touch-none"
-                  />
+                <input
+                  type="range"
+                  min={min}
+                  max={max}
+                  value={params[key]}
+                  onChange={(e) => {
+                    const v = parseInt(e.target.value);
+                    updateParam(key, v);
+                  }}
+                  onPointerUp={commitRender}
+                  className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent touch-none"
+                />
               </div>
             ))}
           </div>
