@@ -10,9 +10,12 @@ interface Params {
   shift: number;
   glow: number;
   noise: number;
+  bright: number;
+  contrast: number;
+  saturate: number;
 }
 
-const DEFAULTS: Params = { color: 30, shift: 4, glow: 20, noise: 12 };
+const DEFAULTS: Params = { color: 30, shift: 4, glow: 20, noise: 12, bright: 100, contrast: 100, saturate: 100 };
 
 export default function JieYuanFilter() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -97,6 +100,10 @@ export default function JieYuanFilter() {
       ctx.putImageData(finalData, 0, 0);
     }
 
+    ctx.filter = `brightness(${p.bright / 100}) contrast(${p.contrast / 100}) saturate(${p.saturate / 100})`;
+    ctx.drawImage(canvas, 0, 0);
+    ctx.filter = 'none';
+
     ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
     for (let y = 0; y < h; y += 4) {
       ctx.fillRect(0, y, w, 1);
@@ -169,13 +176,22 @@ export default function JieYuanFilter() {
   const formatLabel = (key: keyof Params) => {
     const v = params[key];
     if (key === 'shift') return String(v);
-    if (key === 'noise') return String(v);
     return `${v}%`;
   };
 
+  const controls = [
+    { key: 'color' as const, label: '染色浓度', min: 0, max: 100 },
+    { key: 'shift' as const, label: '色散', min: 0, max: 20 },
+    { key: 'glow' as const, label: '辉光', min: 0, max: 100 },
+    { key: 'noise' as const, label: '噪点', min: 0, max: 60 },
+    { key: 'bright' as const, label: '亮度', min: 0, max: 200 },
+    { key: 'contrast' as const, label: '对比度', min: 0, max: 200 },
+    { key: 'saturate' as const, label: '饱和度', min: 0, max: 200 },
+  ];
+
   return (
     <>
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
         <div className="w-[3px] h-[10px] bg-lt-accent"></div>
         <span className="text-[11px] font-mono tracking-[0.2em] font-semibold text-lt-ink uppercase">
           Workshop // Generator
@@ -183,7 +199,7 @@ export default function JieYuanFilter() {
         <div className="flex-1 h-[1px] bg-lt-border"></div>
       </div>
 
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-6">
         <input
           ref={fileInputRef}
           type="file"
@@ -218,39 +234,34 @@ export default function JieYuanFilter() {
         )}
 
         {loadKey > 0 && (
-          <div className="w-full space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 p-6 border border-lt-border bg-lt-surface/30">
-              {([
-                { key: 'color', label: '粉青染色浓度' },
-                { key: 'shift', label: 'RGB 色散错位' },
-                { key: 'glow', label: '柔焦梦幻辉光' },
-                { key: 'noise', label: '老电视噪点' },
-              ] as const).map(({ key, label }) => (
-                <div key={key} className="flex flex-col gap-2">
+          <div className="w-full space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 p-4 border border-lt-border bg-lt-surface/30">
+              {controls.map(({ key, label, min, max }) => (
+                <div key={key} className="flex flex-col gap-1">
                   <div className="flex justify-between items-baseline">
-                    <span className="font-mono text-[10px] text-lt-muted font-bold uppercase tracking-widest">
+                    <span className="font-mono text-[9px] text-lt-muted font-bold uppercase tracking-widest">
                       {label}
                     </span>
-                    <span className="font-mono text-[10px] text-lt-accent font-black tabular-nums">
+                    <span className="font-mono text-[9px] text-lt-accent font-black tabular-nums">
                       {formatLabel(key)}
                     </span>
                   </div>
                   <input
                     type="range"
-                    min={key === 'shift' ? 0 : 0}
-                    max={key === 'shift' ? 20 : key === 'noise' ? 60 : 100}
+                    min={min}
+                    max={max}
                     value={params[key]}
                     onChange={(e) => {
                       const v = parseInt(e.target.value);
                       updateParam(key, v);
                     }}
-                    className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border rounded-full [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-lt-accent [&::-webkit-slider-thumb]:shadow-[0_0_4px_rgba(212,98,26,0.5)]"
+                    className="w-full accent-lt-accent cursor-pointer h-1 appearance-none bg-lt-border [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-lt-accent"
                   />
                 </div>
               ))}
             </div>
 
-            <div className="relative border border-lt-border p-2 bg-lt-surface/20">
+            <div className="relative border border-lt-border p-1 bg-lt-surface/20">
               <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
               <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
               <canvas
@@ -260,10 +271,10 @@ export default function JieYuanFilter() {
               />
             </div>
 
-            <div className="flex gap-4 justify-center">
+            <div className="flex gap-3 justify-center">
               <button
                 onClick={handleDownload}
-                className="group relative border border-lt-border bg-lt-bg px-8 py-3 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+                className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
               >
                 <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
@@ -271,7 +282,7 @@ export default function JieYuanFilter() {
               </button>
               <button
                 onClick={handleReset}
-                className="group relative border border-lt-border bg-lt-bg px-8 py-3 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+                className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
               >
                 <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
