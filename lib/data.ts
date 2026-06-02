@@ -58,10 +58,10 @@ export const siteData = {
       meta: "Site Topology // Active",
       watermark: "Nav",
       links: [
-        { name: "主页", url: "https://chongxi.us", current: true },
+        { name: "Home", url: "https://chongxi.us", current: true },
         { name: "Blog", url: "https://xice.cx" },
-        { name: "状态监测站", url: "https://mai.chongxi.us" },
-        { name: "界园风格图片生产器", url: "https://chongxi.us/tool/jieyuan" }
+        { name: "Monitor", url: "https://mai.chongxi.us" },
+        { name: "JieYuan", url: "https://chongxi.us/tool/jieyuan" }
       ]
     },
     {

@@ -15,7 +15,7 @@ const ArchiveCard = ({ children, title, chapter, refCode, meta, watermark, id }:
   watermark: string;
   id: string;
 }) => (
-  <div id={id} className="relative w-full max-w-[840px] bg-lt-bg paper-texture shadow-2xl p-8 sm:p-16 overflow-hidden animate-enter">
+  <div id={id} className="relative w-full bg-lt-bg paper-texture px-6 md:px-16 py-12 md:py-16 overflow-hidden animate-enter border-b border-lt-border/10">
     <div className="absolute -top-10 -right-20 pointer-events-none select-none z-0">
       <span className="font-display text-[200px] sm:text-[320px] text-lt-ink opacity-[0.03] leading-none uppercase">
         {watermark}
@@ -299,7 +299,8 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
         utcLabel={data.global.utc_label} 
       />
       
-      <main className="py-16 flex flex-col items-center gap-12 px-4 md:ml-12 relative z-10">
+      <main className="flex flex-col items-center md:ml-12">
+        <div className="w-full md:max-w-[840px] md:mx-auto flex flex-col pt-16">
         
         <ArchiveCard 
           id={`chapter-${c1.id}`}
@@ -550,8 +551,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           </div>
         </ArchiveCard>
 
-        {/* Support Us */}
-        <div className="relative w-full max-w-[840px] bg-lt-bg paper-texture shadow-2xl px-6 md:px-16 py-10 md:py-12 overflow-hidden border-b border-lt-border/20">
+        <div className="relative w-full bg-lt-bg paper-texture px-6 md:px-16 py-12 md:py-16 overflow-hidden border-b border-lt-border/10">
           <div className="absolute top-0 right-0 p-4 opacity-[0.04] pointer-events-none">
             <svg width="140" height="140" viewBox="0 0 24 24" fill="currentColor">
               <path d="M2,21V19H20V21H2M20,7H17V3H20V7M17,17H6V9H17V17Z" />
@@ -581,16 +581,29 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           </div>
         </div>
 
-        <footer className="w-full max-w-[840px] flex flex-col sm:flex-row justify-between items-end border-t-2 border-lt-ink pt-6 mb-16 text-lt-muted font-mono text-[11px] gap-4 relative z-10">
-          <div className="uppercase tracking-[0.2em] font-bold opacity-60">
-            © {new Date().getFullYear()} Chongxi & CEPATO
-          </div>
-          <div className="text-right uppercase tracking-[0.2em] font-black text-lt-ink">
-            {data.global.footer_text}
-          </div>
-        </footer>
+        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden border-b border-lt-border/10">
+          <div className="absolute z-10 -top-1 -left-1 w-3 h-3 border-t border-l border-lt-bg/40"></div>
+          <div className="absolute z-10 -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-bg/40"></div>
 
-      </main>
+          <div className="relative z-10">
+            <div className="text-sm text-right text-lt-bg/60 font-display">
+              Copyright &copy; {new Date().getFullYear()} <span className="text-lt-accent">Chongxi &amp; CEPATO</span><br/>
+              <span className="opacity-50">Powered by</span>
+              <a className="text-lt-accent font-medium hover:underline" href="https://nextjs.org" target="_blank" rel="noreferrer"> Next.js</a>
+              <span className="opacity-50"> &amp; </span>
+              <a className="text-lt-accent font-medium hover:underline" href="https://github.com/ChongxiSama" target="_blank" rel="noreferrer"> CEPATO</a>
+              <span className="text-[0.65rem] opacity-30 mt-3 block uppercase tracking-widest">Non-Collaborative_Entity // Protocol_V.4.21</span>
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] flex">
+            <div className="bg-rl-teal w-1/3"></div>
+            <div className="bg-rl-gold w-1/3"></div>
+            <div className="bg-rl-red w-1/3"></div>
+          </div>
+        </div>
+
+      </div></main>
     </>
   );
 }

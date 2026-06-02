@@ -90,7 +90,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${ibmPlexMono.variable} ${notoSerifSC.variable} antialiased bg-[#D6D0C2] min-h-screen`}
       >
-        {children}
+        <div className="animate-enter">
+          {children}
+        </div>
       </body>
     </html>
   );
