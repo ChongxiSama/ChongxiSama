@@ -113,11 +113,11 @@ export default function JieYuanFilter() {
   useEffect(() => {
     if (loadKey > 0) {
       setRendering(true);
-      const id = requestAnimationFrame(() => {
+      const id = setTimeout(() => {
         applyEffect(params);
         setRendering(false);
-      });
-      return () => cancelAnimationFrame(id);
+      }, 0);
+      return () => clearTimeout(id);
     }
   }, [loadKey, params, applyEffect]);
 
@@ -145,7 +145,13 @@ export default function JieYuanFilter() {
         imageRef.current = img;
         setLoadKey((k) => k + 1);
       };
+      img.onerror = () => {
+        setError('图片加载失败，请尝试其他文件');
+      };
       img.src = event.target?.result as string;
+    };
+    reader.onerror = () => {
+      setError('文件读取失败');
     };
     reader.readAsDataURL(file);
   };
