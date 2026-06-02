@@ -300,7 +300,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
       />
       
       <main className="flex flex-col items-center md:ml-12">
-        <div className="w-full md:max-w-[840px] md:mx-auto flex flex-col pt-16">
+        <div className="w-full md:max-w-[840px] md:mx-auto flex flex-col pt-8 md:pt-16">
         
         <ArchiveCard 
           id={`chapter-${c1.id}`}
@@ -581,13 +581,18 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
           </div>
         </div>
 
-        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden border-b border-lt-border/10">
+        <div className="relative w-full bg-lt-ink paper-texture px-6 md:px-16 py-12 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img src="/footer-bg.jpg" alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/70"></div>
+          </div>
           <div className="absolute z-10 -top-1 -left-1 w-3 h-3 border-t border-l border-lt-bg/40"></div>
           <div className="absolute z-10 -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-bg/40"></div>
+          <div className="absolute inset-0 z-[2] paper-texture opacity-20 pointer-events-none"></div>
 
           <div className="relative z-10">
             <div className="text-sm text-right text-lt-bg/60 font-display">
-              Copyright &copy; {new Date().getFullYear()} <span className="text-lt-accent">Chongxi &amp; CEPATO</span><br/>
+              Copyright &copy; {new Date().getFullYear()} <span className="text-lt-accent font-semibold">Chongxi &amp; CEPATO</span><br/>
               <span className="opacity-50">Powered by</span>
               <a className="text-lt-accent font-medium hover:underline" href="https://nextjs.org" target="_blank" rel="noreferrer"> Next.js</a>
               <span className="opacity-50"> &amp; </span>
@@ -596,7 +601,7 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-[3px] flex">
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] flex z-10">
             <div className="bg-rl-teal w-1/3"></div>
             <div className="bg-rl-gold w-1/3"></div>
             <div className="bg-rl-red w-1/3"></div>
