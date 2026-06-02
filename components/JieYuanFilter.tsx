@@ -257,38 +257,45 @@ export default function JieYuanFilter() {
             ))}
           </div>
 
-          {loadKey > 0 && (
-            <>
-              <div className="relative border border-lt-border p-1 bg-lt-surface/20">
-                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-                <canvas
-                  ref={canvasRef}
-                  onClick={handleView}
-                  className="w-full h-auto cursor-pointer block"
-                />
+          <div className="relative border border-lt-border p-1 bg-lt-surface/20 min-h-[200px] flex items-center justify-center">
+            <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+            {loadKey > 0 ? (
+              <canvas
+                ref={canvasRef}
+                onClick={handleView}
+                className="w-full h-auto cursor-pointer block"
+              />
+            ) : (
+              <div className="flex flex-col items-center gap-3 py-12">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-lt-ghost">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <span className="font-mono text-[10px] text-lt-ghost uppercase tracking-widest">No Image Selected</span>
               </div>
+            )}
+          </div>
 
-              <div className="flex gap-3 justify-center">
-                <button
-                  onClick={handleDownload}
-                  className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-                >
-                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-                  Download
-                </button>
-                <button
-                  onClick={handleReset}
-                  className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
-                >
-                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
-                  Reset
-                </button>
-              </div>
-            </>
-          )}
+          <div className="flex gap-3 justify-center">
+            <button
+              onClick={handleDownload}
+              className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+            >
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+              Download
+            </button>
+            <button
+              onClick={handleReset}
+              className="group relative border border-lt-border bg-lt-bg px-6 py-2.5 text-[11px] font-mono font-black uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:bg-lt-ink hover:text-lt-bg"
+            >
+              <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-lt-ink"></div>
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-lt-ink"></div>
+              Reset
+            </button>
+          </div>
         </div>
       </div>
     </>
