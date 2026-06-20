@@ -87,8 +87,8 @@
 
 <!-- BLOG-POST-LIST:START -->
 - [使用obisidian和git插件来完美管理静态博客](https://xice.cx/posts/useGitOnObisdian/)
+- [玩客云拆机教程](https://xice.cx/posts/onecloudTeardown/)
 - [母语级英语的本质，不是英语](https://xice.cx/posts/English/)
 - [我用过最好用的Android桌面&lpar;启动器&rpar;](https://xice.cx/posts/niagaraLauncher/)
 - [1. 区块链基本知识](https://xice.cx/posts/ch01-web3/)
-- [b站创作激励提现几乎无门槛了](https://xice.cx/posts/bilibiliWithdrawal/)
 <!-- BLOG-POST-LIST:END -->
