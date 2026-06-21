@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [三星S20系列刷入移植OneUI8流程](https://xice.cx/posts/samsungS20FlashOneUI8/)
 - [使用obisidian和git插件来完美管理静态博客](https://xice.cx/posts/useGitOnObisdian/)
 - [玩客云拆机教程](https://xice.cx/posts/onecloudTeardown/)
 - [母语级英语的本质，不是英语](https://xice.cx/posts/English/)
 - [我用过最好用的Android桌面&lpar;启动器&rpar;](https://xice.cx/posts/niagaraLauncher/)
-- [1. 区块链基本知识](https://xice.cx/posts/ch01-web3/)
 <!-- BLOG-POST-LIST:END -->
