@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [最好用的Android邮件客户端推荐](https://xice.cx/posts/mailClientRecommend/)
 - [如何验证对方是不是Chongxi我本人](https://xice.cx/posts/VerifyChongxi/)
 - [三星S20系列刷入移植OneUI8流程](https://xice.cx/posts/samsungS20FlashOneUI8/)
 - [使用obisidian和git插件来完美管理静态博客](https://xice.cx/posts/useGitOnObisdian/)
 - [玩客云拆机教程](https://xice.cx/posts/onecloudTeardown/)
-- [母语级英语的本质，不是英语](https://xice.cx/posts/English/)
 <!-- BLOG-POST-LIST:END -->
