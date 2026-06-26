@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [家中网络「捉奸」记](https://xice.cx/posts/fuckPCDN/)
 - [中国移动PT927G光猫折腾指南：破解超级密码改桥接](https://xice.cx/posts/CMCCPT927G/)
 - [最好用的Android邮件客户端推荐](https://xice.cx/posts/mailClientRecommend/)
 - [如何验证对方是不是Chongxi我本人](https://xice.cx/posts/VerifyChongxi/)
 - [三星S20系列刷入移植OneUI8流程](https://xice.cx/posts/samsungS20FlashOneUI8/)
-- [使用obisidian和git插件来完美管理静态博客](https://xice.cx/posts/useGitOnObisdian/)
 <!-- BLOG-POST-LIST:END -->
