@@ -86,9 +86,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [x402：一个来自27年前的状态码能救活被ai榨干的「人类网站」吗](https://xice.cx/posts/x402OverCloudflare/)
 - [舞萌国人口大普查：全服玩家数据分析](https://xice.cx/posts/maimaiUIDinsight/)
 - [家中网络「捉奸」记](https://xice.cx/posts/fuckPCDN/)
 - [中国移动PT927G光猫折腾指南：破解超级密码改桥接](https://xice.cx/posts/CMCCPT927G/)
 - [最好用的Android邮件客户端推荐](https://xice.cx/posts/mailClientRecommend/)
-- [如何验证对方是不是Chongxi我本人](https://xice.cx/posts/VerifyChongxi/)
 <!-- BLOG-POST-LIST:END -->
