@@ -61,28 +61,6 @@
 
 ---
 
-## Metrics
-
-<div align="center">
-  <img src="./github-metrics.svg" width="100%" alt="Metrics Dashboard" />
-</div>
-
-<br />
-
----
-
-## Quote
-
-<div align="center">
-
-<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" />
-
-</div>
-
-<br />
-
----
-
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
