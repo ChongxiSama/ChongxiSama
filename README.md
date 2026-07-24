@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [钢铁雄心4 steam正版导入全DLC补丁](https://xice.cx/posts/hoi4DLChook/)
 - [漫漫长夜全地图及介绍](https://xice.cx/posts/thelongdark/)
 - [记一次无需实名换绑米哈游通行证手机号](https://xice.cx/posts/fkMihoyo/)
 - [邮储银行万事达借记卡全面指南](https://xice.cx/posts/MasterCardDebitPSBC/)
 - [x402：一个来自27年前的状态码能救活被ai榨干的「人类网站」吗](https://xice.cx/posts/x402OverCloudflare/)
-- [舞萌国人口大普查：全服玩家数据分析](https://xice.cx/posts/maimaiUIDinsight/)
 <!-- BLOG-POST-LIST:END -->
