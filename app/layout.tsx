@@ -80,15 +80,18 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="zh-CN" className="scroll-smooth overflow-x-hidden">
+    <html lang="zh-CN" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){document.documentElement.classList.toggle("dark",window.matchMedia("(prefers-color-scheme: dark)").matches)})()`
+        }} />
       </head>
       <body
-        className={`${inter.variable} ${ibmPlexMono.variable} ${notoSerifSC.variable} antialiased bg-[#D6D0C2] min-h-screen overflow-x-hidden`}
+        className={`${inter.variable} ${ibmPlexMono.variable} ${notoSerifSC.variable} antialiased bg-page min-h-screen overflow-x-hidden`}
       >
         <div className="animate-enter">
           {children}

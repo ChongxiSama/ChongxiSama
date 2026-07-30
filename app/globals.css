@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-lt-bg: #EDE6D6;
-  --color-lt-surface: #E4DCC8;
-  --color-lt-border: #C8BFA8;
-  --color-lt-ink: #1A1814;
-  --color-lt-muted: #6B6456;
-  --color-lt-ghost: #A89F90;
-  --color-lt-accent: #D4621A;
+  --color-bg: #EDE6D6;
+  --color-surface: #E4DCC8;
+  --color-border: #C8BFA8;
+  --color-ink: #1A1814;
+  --color-muted: #6B6456;
+  --color-ghost: #A89F90;
+  --color-accent: #D4621A;
+  --color-page: #D6D0C2;
   
   --color-rl-teal: #4B8D9E;
   --color-rl-gold: #C29145;
@@ -21,9 +24,20 @@
   --animate-enter: enter 400ms ease-out forwards;
 }
 
+.dark {
+  --color-page: #161514;
+  --color-bg: #282520;
+  --color-surface: #1E1C18;
+  --color-border: #3A3630;
+  --color-ink: #EDE6D6;
+  --color-muted: #A89F90;
+  --color-ghost: #6B6456;
+  --color-accent: #D4621A;
+}
+
 @keyframes sync-fill {
-  0% { background-color: var(--color-lt-ink); opacity: 0.1; }
-  100% { background-color: var(--color-lt-accent); opacity: 1; box-shadow: 0 0 4px rgba(212,98,26,0.4); }
+  0% { background-color: var(--color-ink); opacity: 0.1; }
+  100% { background-color: var(--color-accent); opacity: 1; box-shadow: 0 0 4px rgba(212,98,26,0.4); }
 }
 
 .sync-bar {
@@ -77,20 +91,20 @@
 
 @utility rp-stamp {
   display: inline-flex;
-  border: 1px solid #1A1814;
+  border: 1px solid var(--color-ink);
   padding: 1px;
-  background: white;
+  background: var(--color-bg);
   
   & .r {
     padding: 0 4px;
     font-size: 18px;
     font-weight: 900;
     font-style: italic;
-    color: #1A1814;
+    color: var(--color-ink);
   }
   
   & .p {
-    background: #A33332;
+    background: var(--color-rl-red);
     color: white;
     padding: 0 6px;
     font-size: 18px;
@@ -101,7 +115,7 @@
 
 @layer base {
   body {
-    @apply font-mono text-lt-ink antialiased;
+    @apply font-mono text-ink antialiased;
   }
   
   a {
