@@ -29,7 +29,7 @@ export function applyTheme() {
 
 export function subscribe(fn: (m: ThemeMode) => void) {
   listeners.add(fn);
-  return () => listeners.delete(fn);
+  return () => { listeners.delete(fn); };
 }
 
 if (typeof window !== "undefined") {
