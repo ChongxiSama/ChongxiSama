@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --color-bg: #EDE6D6;
   --color-surface: #E4DCC8;
@@ -24,15 +22,17 @@
   --animate-enter: enter 400ms ease-out forwards;
 }
 
-.dark {
-  --color-page: #161514;
-  --color-bg: #282520;
-  --color-surface: #1E1C18;
-  --color-border: #3A3630;
-  --color-ink: #EDE6D6;
-  --color-muted: #A89F90;
-  --color-ghost: #6B6456;
-  --color-accent: #D4621A;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page: #161514;
+    --color-bg: #282520;
+    --color-surface: #1E1C18;
+    --color-border: #3A3630;
+    --color-ink: #EDE6D6;
+    --color-muted: #A89F90;
+    --color-ghost: #6B6456;
+    --color-accent: #D4621A;
+  }
 }
 
 @keyframes sync-fill {
