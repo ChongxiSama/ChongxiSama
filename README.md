@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [舞萌机台开机初始化进程详解](https://xice.cx/posts/maimaiPowerOn/)
 - [为什么喜欢音乐 反而不该去学音乐？](https://xice.cx/posts/260804/)
 - [从装逼到嘉豪：中国互联网的精神胜利进化史](https://xice.cx/posts/jiahao/)
 - [游蒋介石故居：奉化溪口](https://xice.cx/posts/ChiangKaishekHome/)
 - [钢铁雄心4 steam正版导入全DLC补丁](https://xice.cx/posts/hoi4DLChook/)
-- [漫漫长夜全地图及介绍](https://xice.cx/posts/thelongdark/)
 <!-- BLOG-POST-LIST:END -->
