@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [做了一个明日方舟-奇象巡展的像素画拼豆工具](https://xice.cx/posts/ark24/)
 - [舞萌DX国服封禁机制详解](https://xice.cx/posts/maimaiBS/)
 - [舞萌开机网络自检底层技术说明，断网如何排查讲解](https://xice.cx/posts/maimaiNetworkCheck/)
 - [舞萌机台开机初始化进程详解](https://xice.cx/posts/maimaiPowerOn/)
 - [为什么喜欢音乐 反而不该去学音乐？](https://xice.cx/posts/260804/)
-- [从装逼到嘉豪：中国互联网的精神胜利进化史](https://xice.cx/posts/jiahao/)
 <!-- BLOG-POST-LIST:END -->
