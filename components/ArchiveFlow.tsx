@@ -283,20 +283,12 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
               <a className="text-accent font-medium hover:underline transition" href="https://nextjs.org" target="_blank" rel="noreferrer"> Next.js</a>
               <span className="opacity-50"> &amp; </span>
               <a className="text-accent font-medium hover:underline transition" href="https://github.com/ChongxiSama" target="_blank" rel="noreferrer"> CEPATO</a>
+              <br/>
+              <a className="text-accent font-medium hover:underline transition" href="https://status.chongxi.us/" target="_blank" rel="noreferrer"> Status</a>
               <span className="text-[0.65rem] opacity-30 mt-2 block uppercase tracking-widest">Non-Collaborative_Entity // Protocol_V.4.21</span>
               <span className="text-[0.6rem] opacity-20 mt-1 block uppercase tracking-widest">MoeICP: NO. 20250591 // Verified</span>
             </div>
           </div>
-        </div>
-        <div className="mt-4 text-center">
-          <a
-            href="https://status.chongxi.us/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10px] uppercase tracking-widest text-muted transition-colors hover:text-accent"
-          >
-            Status
-          </a>
         </div>
 
       </div></main>
