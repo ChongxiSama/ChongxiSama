@@ -288,6 +288,16 @@ export default function ArchiveFlow({ data }: { data: SiteData }) {
             </div>
           </div>
         </div>
+        <div className="mt-4 text-center">
+          <a
+            href="https://status.chongxi.us/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] uppercase tracking-widest text-muted transition-colors hover:text-accent"
+          >
+            Status
+          </a>
+        </div>
 
       </div></main>
     </ChapterTracker>
