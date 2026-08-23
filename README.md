@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [讲讲「万物皆虚，万事皆允」](https://xice.cx/posts/nothingIsTrue/)
 - [舞萌DX 落雪查分器使用指南](https://xice.cx/posts/maiLxnsSync/)
 - [现代人的刻舟求剑](https://xice.cx/posts/thinking260811/)
 - [舞萌DX错误码0010深度解析及处理方法](https://xice.cx/posts/maiErr0010/)
 - [做了一个明日方舟-奇象巡展的像素画拼豆工具](https://xice.cx/posts/ark24/)
-- [舞萌DX国服封禁机制详解](https://xice.cx/posts/maimaiBS/)
 <!-- BLOG-POST-LIST:END -->
