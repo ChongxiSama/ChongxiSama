@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [深入聊聊apple设备间生态体验](https://xice.cx/posts/onlyAppleCanDo/)
 - [Google相册迁移到iCloud分享](https://xice.cx/posts/googlePhoto2iCloud/)
 - [讲讲「万物皆虚，万事皆允」](https://xice.cx/posts/nothingIsTrue/)
 - [舞萌DX 落雪查分器使用指南](https://xice.cx/posts/maiLxnsSync/)
 - [现代人的刻舟求剑](https://xice.cx/posts/thinking260811/)
-- [舞萌DX错误码0010深度解析及处理方法](https://xice.cx/posts/maiErr0010/)
 <!-- BLOG-POST-LIST:END -->
