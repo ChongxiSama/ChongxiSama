@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [华为小米粉丝互联网骂架的深入分析](https://xice.cx/posts/huaweiVsXiaomi/)
 - [中国银行bili联名万事达申请指南](https://xice.cx/posts/2233boc/)
 - [深入聊聊apple设备间生态体验](https://xice.cx/posts/onlyAppleCanDo/)
 - [Google相册迁移到iCloud分享](https://xice.cx/posts/googlePhoto2iCloud/)
 - [讲讲「万物皆虚，万事皆允」](https://xice.cx/posts/nothingIsTrue/)
-- [舞萌DX 落雪查分器使用指南](https://xice.cx/posts/maiLxnsSync/)
 <!-- BLOG-POST-LIST:END -->
