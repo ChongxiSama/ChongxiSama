@@ -6,7 +6,7 @@ export default function SiteHeader() {
     <header className="focus-in stagger-2 border-b-2 border-carbon pb-8 mb-10">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div className="flex items-start gap-6">
-          <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 border border-carbon overflow-hidden">
+          <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 shrink-0 border border-carbon overflow-hidden">
             <Image
               src={profile.avatar}
               alt={profile.name}
@@ -19,7 +19,7 @@ export default function SiteHeader() {
 
           <div>
             <div className="flex items-center gap-3 mb-1">
-              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-none">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none">
                 {profile.name}
               </h1>
               <span className="text-[10px] uppercase font-bold bg-carbon text-paper px-1.5 py-0.5">
