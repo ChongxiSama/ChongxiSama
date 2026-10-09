@@ -1,24 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Mono, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["900"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
-const notoSerifSC = Noto_Serif_SC({
-  variable: "--font-cn",
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-});
 
 export const metadata: Metadata = {
   title: "Chongxi's Homepage | CEPATO",
@@ -39,7 +20,7 @@ export const metadata: Metadata = {
         height: 800,
       },
     ],
-    locale: "zh_CN",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -60,7 +41,7 @@ export default function RootLayout({
         "url": "https://chongxi.us/",
         "image": "https://github.com/ChongxiSama.png",
         "identifier": "0009-0007-9348-1534",
-        "description": "个人开发者，CEPATO 和 ForestSeCond 的第一负责人。专注于 Web3, SEO 以及 Android 技术研究。",
+        "description": "Independent developer and lead of CEPATO and ForestSeCond. Focused on Web3, SEO and Android research.",
         "sameAs": [
           "https://xice.cx/",
           "https://mai.chongxi.us/",
@@ -80,20 +61,22 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="zh-CN" className="scroll-smooth overflow-x-hidden">
+    <html
+      lang="en-US"
+      className="scroll-smooth overflow-x-hidden bg-void"
+    >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${inter.variable} ${ibmPlexMono.variable} ${notoSerifSC.variable} antialiased bg-page min-h-screen overflow-x-hidden`}
-      >
-        <div className="animate-enter">
-          {children}
-        </div>
-      </body>
+      <body className="min-h-screen overflow-x-hidden">{children}</body>
     </html>
   );
 }
