@@ -1,6 +1,13 @@
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 const STEAM_ID = '76561199634347036';
 
+interface SteamApiGame {
+    appid: number;
+    name: string;
+    playtime_2weeks: number;
+    img_icon_url: string;
+}
+
 export const getSteamStatus = async () => {
     if (!STEAM_API_KEY) return { personastate: 0 };
 
@@ -33,11 +40,11 @@ export const getRecentlyPlayed = async () => {
         const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) return [];
 
-        const data = await response.json();
+        const data = (await response.json()) as { response?: { games?: SteamApiGame[] } };
         const games = data.response?.games;
         if (!games) return [];
 
-        return games.slice(0, 3).map((game: any) => ({
+        return games.slice(0, 3).map((game) => ({
             appid: game.appid,
             name: game.name,
             playtime_2weeks: game.playtime_2weeks,
