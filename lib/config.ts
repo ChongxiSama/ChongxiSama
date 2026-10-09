@@ -5,8 +5,6 @@ export interface LinkNode {
   handle: string;
   icon: string;
   current?: boolean;
-  tagStyle?: "outline" | "solid" | "crimson";
-  tint?: boolean;
 }
 
 export interface Project {
@@ -49,7 +47,7 @@ export const allLinks: LinkNode[] = [
   { name: "GitHub", url: "https://github.com/ChongxiSama", tag: "Code", handle: "ChongxiSama", icon: "github" },
   { name: "Telegram", url: "https://t.me/CEPATECH", tag: "Social", handle: "t.me/CEPATECH", icon: "telegram" },
   { name: "Email", url: "mailto:qwq@chongxi.us", tag: "Mail", handle: "qwq@chongxi.us", icon: "email" },
-  { name: "Blog", url: "https://xice.cx", tag: "Blog", handle: "xice.cx", icon: "blog", tagStyle: "solid" },
+  { name: "Blog", url: "https://xice.cx", tag: "Blog", handle: "xice.cx", icon: "blog" },
   {
     name: "Steam",
     url: "https://steamcommunity.com/id/CEPATO/",
@@ -63,8 +61,6 @@ export const allLinks: LinkNode[] = [
     tag: "Monitor",
     handle: "mai.chongxi.us",
     icon: "monitor",
-    tagStyle: "crimson",
-    tint: true,
   },
 ];
 

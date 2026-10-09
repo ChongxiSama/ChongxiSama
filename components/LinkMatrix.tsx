@@ -1,11 +1,5 @@
-import { allLinks, type LinkNode } from "@/lib/config";
+import { allLinks } from "@/lib/config";
 import TechIcon from "@/components/TechIcon";
-
-function tagClass(style: LinkNode["tagStyle"]) {
-  if (style === "solid") return "tag-solid border border-carbon";
-  if (style === "crimson") return "tag-crimson border border-crimson text-crimson";
-  return "tag-outline border border-carbon";
-}
 
 export default function LinkMatrix() {
   const nodes = allLinks.filter((link) => !link.current);
@@ -18,15 +12,13 @@ export default function LinkMatrix() {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`swiss-cell flex flex-col justify-between gap-4 h-24 p-3.5 ${
-            link.tint ? "bg-ochre/15" : "bg-paper"
-          }`}
+          className="swiss-cell flex h-24 lg:h-28 flex-col justify-between gap-4 bg-paper p-3.5 lg:p-4"
         >
           <div className="flex justify-between items-start gap-2">
             <span className="cell-muted font-mono text-[10px] tabular-nums">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <span className={`shrink-0 px-1 py-0.5 text-[9px] font-bold uppercase tracking-wider ${tagClass(link.tagStyle)}`}>
+            <span className="tag-outline shrink-0 border border-carbon px-1 py-0.5 text-[9px] font-bold uppercase tracking-wider">
               {link.tag}
             </span>
           </div>

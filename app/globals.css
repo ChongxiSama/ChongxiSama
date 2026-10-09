@@ -162,23 +162,6 @@
   color: var(--color-paper);
 }
 
-.swiss-cell:hover .tag-solid,
-.swiss-cell:focus-visible .tag-solid {
-  background-color: var(--color-paper);
-  color: var(--color-carbon);
-}
-
-.swiss-cell:hover .tag-crimson,
-.swiss-cell:focus-visible .tag-crimson {
-  border-color: var(--color-paper);
-  color: var(--color-paper);
-}
-
-.tag-solid {
-  background-color: var(--color-carbon);
-  color: var(--color-paper);
-}
-
 @media (prefers-reduced-motion: reduce) {
   .focus-in,
   .stagger-1,
