@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [我的blog设计理念](https://xice.cx/posts/myBlogDesign/)
 - [买到假AirPods4的踩坑维权经历](https://xice.cx/posts/fakeAirPods4/)
 - [华为小米粉丝互联网骂架的深入分析](https://xice.cx/posts/huaweiVsXiaomi/)
 - [中国银行bili联名万事达申请指南](https://xice.cx/posts/2233boc/)
 - [深入聊聊apple设备间生态体验](https://xice.cx/posts/onlyAppleCanDo/)
-- [Google相册迁移到iCloud分享](https://xice.cx/posts/googlePhoto2iCloud/)
 <!-- BLOG-POST-LIST:END -->
