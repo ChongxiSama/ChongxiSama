@@ -61,9 +61,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [大疆的傲慢与代价：从GeekCon报警事件说起](https://xice.cx/posts/dji/)
 - [我的文章是怎么写出来的，以及我对ai写文的看法](https://xice.cx/posts/howIwriteBlog/)
 - [我的blog设计理念](https://xice.cx/posts/myBlogDesign/)
 - [买到假AirPods4的踩坑维权经历](https://xice.cx/posts/fakeAirPods4/)
 - [华为小米粉丝互联网骂架的深入分析](https://xice.cx/posts/huaweiVsXiaomi/)
-- [中国银行bili联名万事达申请指南](https://xice.cx/posts/2233boc/)
 <!-- BLOG-POST-LIST:END -->
