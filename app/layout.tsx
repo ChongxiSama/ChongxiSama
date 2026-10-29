@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Chongxi's Homepage | CEPATO",
   description: "Full Stack Developer, Web3 Researcher & Tech Blogger. Exploration of Web3, SEO, and Android Technology.",
   authors: [{ name: "Chongxi" }],
+  alternates: {
+    canonical: "https://chongxi.us/",
+  },
   icons: {
     icon: "https://github.com/ChongxiSama.png",
   },
