@@ -1,37 +1,53 @@
+import Image from "next/image";
 import { archive } from "@/lib/data";
-import { profile } from "@/lib/config";
+import { blogUrl, profile } from "@/lib/config";
 
 export default function SiteFooter() {
-  return (
-    <footer className="border-t-2 border-carbon pt-6 text-xs">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <div className="md:col-span-8 space-y-1.5">
-          <div className="font-bold">
-            Copyright © {new Date().getFullYear()} {profile.name} &amp; CEPATO · Powered by Next.js
-            &amp; CEPATO
-          </div>
-          <div className="space-y-0.5 font-mono text-[11px] text-muted">
-            <div>{`Status: ${archive.status} // ${archive.protocol}`}</div>
-            <div>{`${archive.moeicp.label}: ${archive.moeicp.value} // ${archive.moeicp.verified}`}</div>
-          </div>
-        </div>
+  const year = new Date().getFullYear();
 
-        <div className="md:col-span-4 flex flex-col justify-between gap-2 md:border-l md:border-carbon md:pl-5">
-          <a
-            href={archive.statusUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[10px] uppercase tracking-wider text-muted underline hover:text-crimson"
-          >
-            Status page
-          </a>
-          <div>
-            <span className="block text-[10px] uppercase tracking-wider text-muted">
-              {profile.domain}
-            </span>
-            <span className="block text-[10px] uppercase tracking-wider text-muted">
-              All rights reserved
-            </span>
+  return (
+    <footer className="relative overflow-hidden bg-shell text-on-shell">
+      <Image
+        src="/images/footer-bg.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover opacity-25"
+      />
+      <div className="absolute inset-0 bg-shell/85" aria-hidden="true" />
+
+      <div className="relative z-10 mx-auto w-full max-w-[960px] px-6 py-10 sm:px-6">
+        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div className="space-y-1.5">
+            <div className="deco text-[9px] text-on-shell/45">{profile.domain}</div>
+            <div className="text-xs text-on-shell/70">
+              Copyright © {year} {profile.name} &amp; CEPATO · Powered by Next.js
+            </div>
+            <div className="font-mono text-[11px] text-on-shell/45">
+              {`${archive.status} // ${archive.protocol}`}
+            </div>
+            <div className="font-mono text-[11px] text-on-shell/45">
+              {`${archive.moeicp.label}: ${archive.moeicp.value} // ${archive.moeicp.verified}`}
+            </div>
+          </div>
+
+          <div className="deco flex gap-4 text-[9px] text-on-shell/60">
+            <a
+              href={blogUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-on-shell"
+            >
+              Blog ↗
+            </a>
+            <a
+              href={archive.statusUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-on-shell"
+            >
+              Status ↗
+            </a>
           </div>
         </div>
       </div>

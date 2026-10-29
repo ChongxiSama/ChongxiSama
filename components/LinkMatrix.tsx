@@ -5,33 +5,25 @@ export default function LinkMatrix() {
   const nodes = allLinks.filter((link) => !link.current);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-carbon border border-carbon">
-      {nodes.map((link, i) => (
-        <a
-          key={link.name}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="swiss-cell flex h-24 lg:h-28 flex-col justify-between gap-4 bg-paper p-3.5 lg:p-4"
-        >
-          <div className="flex justify-between items-start gap-2">
-            <span className="cell-muted font-mono text-[10px] tabular-nums">
-              {String(i + 1).padStart(2, "0")}
+    <ul className="divide-y divide-carbon/15 border-t border-carbon/15">
+      {nodes.map((link) => (
+        <li key={link.name}>
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 py-3.5 transition-colors hover:text-crimson"
+          >
+            <TechIcon name={link.icon} className="h-3.5 w-3.5 shrink-0 text-muted" />
+            <span className="shrink-0 text-sm font-bold">{link.name}</span>
+            <span className="deco hidden shrink-0 text-[8px] text-muted sm:inline">{link.tag}</span>
+            <span className="ml-auto truncate font-mono text-[11px] text-muted">{link.handle}</span>
+            <span className="shrink-0 text-muted transition-transform group-hover:translate-x-0.5 group-hover:text-crimson">
+              ↗
             </span>
-            <span className="tag-outline shrink-0 border border-carbon px-1 py-0.5 text-[9px] font-bold uppercase tracking-wider">
-              {link.tag}
-            </span>
-          </div>
-
-          <div className="min-w-0">
-            <div className="flex items-center gap-1.5">
-              <TechIcon name={link.icon} className="w-3.5 h-3.5 shrink-0 cell-muted" />
-              <span className="text-sm font-bold leading-tight truncate">{link.name}</span>
-            </div>
-            <div className="cell-muted mt-0.5 font-mono text-[10px] truncate">{link.handle} ↗</div>
-          </div>
-        </a>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

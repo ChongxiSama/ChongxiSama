@@ -1,33 +1,38 @@
 import { techGroups } from "@/lib/data";
 import TechIcon from "@/components/TechIcon";
 
-const BAR_COLORS = ["bg-carbon", "bg-teal", "bg-ochre"];
-
 export default function TechStack() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-      {techGroups.map((group) => (
-        <div key={group.title} className="border border-carbon p-4">
-          <div className="text-[10px] uppercase tracking-wider text-muted mb-3">{group.title}</div>
+    <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {techGroups.map((group, groupIndex) => (
+        <div key={group.title}>
+          <div className="mb-4 flex items-baseline justify-between gap-2 border-b border-carbon/20 pb-1.5">
+            <span className="deco text-[9px] text-muted">{group.title}</span>
+            <span className="font-mono text-[9px] tabular-nums text-muted">
+              {String(groupIndex + 1).padStart(2, "0")}
+            </span>
+          </div>
 
-          <div className="space-y-3 font-mono tabular-nums">
+          <div className="space-y-3 font-mono text-[11px] tabular-nums">
             {group.items.map((item, i) => (
               <div key={item.name}>
-                <div
-                  className={`flex items-baseline justify-between gap-2 mb-1 ${
-                    i === 0 ? "font-bold" : "text-muted"
-                  }`}
-                >
-                  <span className="flex items-center gap-1.5 min-w-0">
-                    <TechIcon name={item.icon} className="w-3 h-3 shrink-0" />
+                <div className="mb-1.5 flex items-baseline justify-between gap-3">
+                  <span
+                    className={`flex min-w-0 items-center gap-1.5 ${i === 0 ? "text-carbon" : "text-muted"}`}
+                  >
+                    <TechIcon name={item.icon} className="h-3 w-3 shrink-0" />
                     <span className="truncate">{item.name}</span>
                   </span>
-                  <span className="shrink-0">{item.pct}%</span>
+                  <span className="w-7 shrink-0 text-right text-carbon">{item.pct}</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden bg-carbon/15">
+
+                <div className="relative h-[3px] w-full bg-carbon/10">
+                  <span className="absolute inset-y-0 left-1/4 w-px bg-carbon/20" aria-hidden="true" />
+                  <span className="absolute inset-y-0 left-1/2 w-px bg-carbon/20" aria-hidden="true" />
+                  <span className="absolute inset-y-0 left-3/4 w-px bg-carbon/20" aria-hidden="true" />
                   <div
-                    className={`h-full bar-grow ${BAR_COLORS[i % BAR_COLORS.length]}`}
-                    style={{ width: `${item.pct}%`, animationDelay: `${i * 0.1}s` }}
+                    className={`relative h-full ${i === 0 ? "bg-crimson" : "bg-carbon/55"}`}
+                    style={{ width: `${item.pct}%` }}
                   />
                 </div>
               </div>

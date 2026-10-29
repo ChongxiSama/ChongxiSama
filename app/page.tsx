@@ -1,64 +1,59 @@
-import AnimateOnScroll from "@/components/AnimateOnScroll";
+import AboutSection from "@/components/AboutSection";
+import Chapter from "@/components/Chapter";
+import GridGuides from "@/components/GridGuides";
+import HeroPanel from "@/components/HeroPanel";
 import LinkMatrix from "@/components/LinkMatrix";
 import ProjectList from "@/components/ProjectList";
-import SectionHeading from "@/components/SectionHeading";
 import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteNav from "@/components/SiteNav";
 import StatusSection from "@/components/StatusSection";
 import SupportBlock from "@/components/SupportBlock";
 import TechStack from "@/components/TechStack";
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-paper">
-      <div className="mx-auto w-full max-w-[1800px] px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-14 lg:py-16 xl:px-20">
-        <div className="focus-in stagger-1 mb-6 flex gap-1.5 sm:mb-8" aria-hidden="true">
-          <span className="h-2.5 w-2.5 bg-teal" />
-          <span className="h-2.5 w-2.5 bg-ochre" />
-          <span className="h-2.5 w-2.5 bg-crimson" />
-          <span className="h-2.5 w-2.5 bg-sienna" />
-        </div>
+    <div id="top" className="min-h-dvh bg-void">
+      <SiteNav />
 
-        <SiteHeader />
+      <main className="mx-auto w-full max-w-[960px] px-3 py-3 sm:px-6 sm:py-6">
+        <article className="card">
+          <HeroPanel />
 
-        <AnimateOnScroll className="mb-10 sm:mb-12 md:mb-16">
-          <StatusSection />
-        </AnimateOnScroll>
+          <div className="px-6 py-10 sm:px-12 md:px-16 md:py-14">
+            <Chapter id="about" index="01" title="About">
+              <AboutSection />
+            </Chapter>
 
-        <AnimateOnScroll className="mb-10 sm:mb-12 md:mb-16">
-          <section aria-labelledby="links-heading">
-            <SectionHeading id="links-heading" index="02" title="Links" meta="6 external nodes" />
-            <LinkMatrix />
-          </section>
-        </AnimateOnScroll>
+            <Chapter id="signals" index="02" title="Signals">
+              <StatusSection />
+            </Chapter>
 
-        <AnimateOnScroll className="mb-10 sm:mb-12 md:mb-16">
-          <section aria-labelledby="stack-heading">
-            <SectionHeading id="stack-heading" index="03" title="Tech Stack" meta="Production share" />
-            <TechStack />
-          </section>
-        </AnimateOnScroll>
+            <Chapter id="links" index="03" title="Links">
+              <LinkMatrix />
+            </Chapter>
 
-        <AnimateOnScroll className="mb-10 sm:mb-12 md:mb-16">
-          <section aria-labelledby="projects-heading">
-            <SectionHeading
-              id="projects-heading"
-              index="04"
-              title="Projects"
-              meta="GitHub repositories"
-            />
-            <ProjectList />
-          </section>
-        </AnimateOnScroll>
+            <Chapter id="stack" index="04" title="Stack">
+              <TechStack />
+            </Chapter>
 
-        <AnimateOnScroll className="mb-10 sm:mb-12 md:mb-16">
-          <SupportBlock />
-        </AnimateOnScroll>
+            <Chapter id="work" index="05" title="Work">
+              <ProjectList />
+            </Chapter>
 
-        <AnimateOnScroll>
-          <SiteFooter />
-        </AnimateOnScroll>
-      </div>
+            <SupportBlock />
+
+            <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-carbon/15 pt-4">
+              <span className="deco text-[8px] text-muted">CEPATO Technical Note · 2026</span>
+              <span className="font-mono text-[10px] text-muted">
+                chongxi.us / 0009-0007-9348-1534
+              </span>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <SiteFooter />
+      <GridGuides />
     </div>
   );
 }

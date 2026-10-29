@@ -64,11 +64,13 @@ export default function RootLayout({
     <html
       lang="en-US"
       className="scroll-smooth overflow-x-hidden bg-void"
+      suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
+            __html:
+              "document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');var d=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d)}catch(e){}",
           }}
         />
         <script

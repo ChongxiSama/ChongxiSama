@@ -37,7 +37,7 @@ export const techGroups: TechGroup[] = [
 
 export const archive = {
   status: "Non-Collaborative_Entity",
-  protocol: "Protocol_V.4.21",
+  protocol: "CEPATO_NEXT_v27.0",
   moeicp: { label: "MoeICP", value: "NO. 20250591", verified: "Verified" },
   statusUrl: "https://status.chongxi.us/",
 };
