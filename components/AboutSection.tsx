@@ -3,7 +3,7 @@ import { about } from "@/lib/config";
 export default function AboutSection() {
   return (
     <div>
-      <div className="max-w-[62ch] space-y-8">
+      <div className="max-w-[70ch] space-y-8 xl:max-w-none xl:columns-2 xl:gap-16 [&_h3]:break-after-avoid [&_h4]:break-after-avoid">
         {about.sections.map((section) => (
           <section key={section.id}>
             <h3 className="deco mb-3 text-[9px] font-semibold text-carbon">{section.title}</h3>

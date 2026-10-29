@@ -8,9 +8,12 @@ export default function SectionHeading({
   title: string;
 }) {
   return (
-    <h2 id={id} className="flex items-baseline gap-2">
-      <span className="font-mono text-[10px] tabular-nums text-muted">{index}</span>
-      <span className="deco text-[9px] text-muted">{`// ${title}`}</span>
-    </h2>
+    <div className="mb-7 flex items-center gap-3">
+      <h2 id={id} className="flex shrink-0 items-baseline gap-2">
+        <span className="font-mono text-[10px] tabular-nums text-muted">{index}</span>
+        <span className="deco text-[9px] text-muted">{`// ${title}`}</span>
+      </h2>
+      <span className="h-px flex-1 bg-carbon/15" aria-hidden="true" />
+    </div>
   );
 }

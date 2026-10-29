@@ -16,7 +16,7 @@ export default function SiteFooter() {
       />
       <div className="absolute inset-0 bg-shell/85" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[960px] px-6 py-10 sm:px-6">
+      <div className="relative z-10 w-full px-6 py-10 sm:px-10 md:px-16 xl:px-24">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div className="space-y-1.5">
             <div className="deco text-[9px] text-on-shell/45">{profile.domain}</div>

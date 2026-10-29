@@ -17,7 +17,7 @@ export default function HeroPanel() {
         alt=""
         fill
         priority
-        sizes="(max-width: 960px) 100vw, 960px"
+        sizes="100vw"
         className="object-cover opacity-60 [mask-image:radial-gradient(115%_100%_at_68%_32%,black_28%,transparent_76%)]"
       />
       <div
@@ -25,7 +25,7 @@ export default function HeroPanel() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 px-6 pt-8 sm:px-12 sm:pt-10 md:px-16 md:pt-12">
+      <div className="relative z-10 px-6 pt-8 sm:px-10 sm:pt-10 md:px-16 md:pt-12 xl:px-24">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-on-shell/15 pb-3 text-[9px] text-on-shell/55">
           <span className="deco">CEPATO Technical Note</span>
           <span className="font-mono tabular-nums">TN-2026</span>

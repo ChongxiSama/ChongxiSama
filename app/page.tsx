@@ -15,11 +15,11 @@ export default function Home() {
     <div id="top" className="min-h-dvh bg-void">
       <SiteNav />
 
-      <main className="mx-auto w-full max-w-[960px] px-3 py-3 sm:px-6 sm:py-6">
+      <main className="w-full">
         <article className="card">
           <HeroPanel />
 
-          <div className="px-6 py-10 sm:px-12 md:px-16 md:py-14">
+          <div className="px-6 py-10 sm:px-10 md:px-16 md:py-14 xl:px-24">
             <Chapter id="about" index="01" title="About">
               <AboutSection />
             </Chapter>

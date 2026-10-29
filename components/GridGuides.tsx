@@ -24,8 +24,8 @@ export default function GridGuides() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-50">
-      <div className="mx-auto h-full w-full max-w-[960px] px-3 sm:px-6">
-        <div className="relative h-full px-6 sm:px-12 md:px-16">
+      <div className="h-full w-full px-6 sm:px-10 md:px-16 xl:px-24">
+        <div className="relative h-full">
           <div
             className="absolute inset-0"
             style={{

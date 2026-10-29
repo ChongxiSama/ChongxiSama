@@ -4,8 +4,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function SiteNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-on-shell/10 bg-shell/95 backdrop-blur">
-      <div className="mx-auto w-full max-w-[960px] px-3 sm:px-6">
-        <div className="flex h-12 items-center justify-between gap-3 px-6 sm:px-12 md:px-16">
+      <div className="w-full px-6 sm:px-10 md:px-16 xl:px-24">
+        <div className="flex h-12 items-center justify-between gap-3">
           <a href="#top" className="deco shrink-0 text-[10px] font-semibold text-on-shell">
             CHONGXI.US
           </a>
