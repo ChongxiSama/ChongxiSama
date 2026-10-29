@@ -37,6 +37,8 @@
 
 ## Stats
 
+<div align="center">
+
 <img src="https://streak-stats.demolab.com/?user=ChongxiSama&theme=dark&ring=39C5BB&fire=39C5BB&currStreakLabel=39C5BB&sideLabels=c9d1d9&dates=c9d1d9&border=30363d&background=0d1117&border_radius=10" />
 
 </div>
@@ -49,7 +51,7 @@
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ChongxiSama&bg_color=0d1117&color=39C5BB&line=39C5BB&point=ffffff&area=true&area_color=39C5BB&border_color=30363d&radius=10" />
+<img src="https://activity-graph.vercel.app/graph?username=ChongxiSama&bg_color=0d1117&color=39C5BB&line=39C5BB&point=ffffff&area=true&area_color=39C5BB&border_color=30363d&radius=10" />
 
 </div>
 
