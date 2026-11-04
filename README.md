@@ -63,9 +63,9 @@
 ## Latest Posts from [xice.cx](https://xice.cx)
 
 <!-- BLOG-POST-LIST:START -->
+- [关于中国社会结构](https://xice.cx/posts/aboutChina/)
 - [程序员为什么为编程语言发起圣战？技术族群主义的结构分析](https://xice.cx/posts/Techno-Tribalism/)
 - [大疆的傲慢与代价：从GeekCon报警事件说起](https://xice.cx/posts/dji/)
 - [我的文章是怎么写出来的，以及我对ai写文的看法](https://xice.cx/posts/howIwriteBlog/)
 - [我的blog设计理念](https://xice.cx/posts/myBlogDesign/)
-- [买到假AirPods4的踩坑维权经历](https://xice.cx/posts/fakeAirPods4/)
 <!-- BLOG-POST-LIST:END -->
